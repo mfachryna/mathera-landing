@@ -91,10 +91,8 @@
 	});
 
 	let stats = $derived([
-		{ value: '200+', label: t('stats.students') || 'Students Taught' },
-		{ value: '10+', label: t('stats.experience') || 'Years Experience' },
-		{ value: '98%', label: t('stats.passRate') || 'Pass Rate' },
-		{ value: '6', label: t('stats.subjects') || 'Subjects Covered' }
+		{ value: '50+', label: t('stats.students') || 'Students Taught' },
+		{ value: '10+', label: t('stats.experience') || 'Years Experience' }
 	]);
 </script>
 
@@ -128,7 +126,7 @@
 					<h1 class="mt-2 text-responsive-xl font-bold text-center w-full max-w-full">
 						<span class="text-foreground leading-tight block mb-2">{t('hero.title') || 'Your Path to'}</span>
 						<!-- Inline wrapper allows natural wrapping of text on mobile without breaking 100vw, while keeping cursor attached -->
-						<div class="mt-2 min-h-[3em] md:min-h-[1.5em] w-full break-words">
+						<div class="mt-2 min-h-[1.5em] w-full break-words">
 							<span class="gradient-text leading-snug inline" style="-webkit-box-decoration-break: clone; box-decoration-break: clone;">
 								{currentText}
 							</span>
@@ -171,8 +169,8 @@
 			</div>
 		</div>
 
-		<div class="mt-12 w-full">
-			<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+		<div class="mt-12 w-full max-w-2xl mx-auto">
+			<div class="grid grid-cols-2 gap-4 sm:gap-6">
 				{#each stats as stat, i}
 					<div
 						class="card-modern text-center !p-5"

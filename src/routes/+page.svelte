@@ -50,7 +50,7 @@
 
 	<div class="relative space-y-0">
 		<AboutSection />
-		<SkillsSection />
+		<!-- <SkillsSection /> -->
 		<CoursesSection />
 		<ExperiencesSection />
 		<RegistrationSection />

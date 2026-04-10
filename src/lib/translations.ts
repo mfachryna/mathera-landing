@@ -74,12 +74,98 @@ export const translations: Record<string, any> = {
 			title: 'Courses Offered',
 			brief: 'What you\'ll learn',
 			desc: 'Structured curricula designed for real understanding.',
+			includesLabel: 'Course includes:',
+			notesLabel: 'Important Notes:',
 			weeks: 'weeks',
 			studentsLabel: 'students',
-			c1: { title: 'Entrance Exam Coaching (Business & Engineering)', level: 'Entrance Exams', desc: 'Improve your chances of admission. Personalized math instruction tailored to your targets, focusing on strategy and time management.', topics: ['Entrance Exam Math', 'Test Strategies', 'Time Management', 'Mock Exams'], price: '€1990 (incl. 24h tutoring)' },
-			c2: { title: 'General Mathematics Tutoring', level: 'All Levels', desc: 'Individualized support from middle school to university. We focus on building deep understanding, logical thinking, and improving grades.', topics: ['Concept Building', 'Homework Support', 'Grade Improvement', 'Logical Thinking'], price: 'from €50/h' },
-			c3: { title: 'Matriculation Exam Coaching', level: 'High School', desc: 'Prepare efficiently for the Finnish yo-exam (short & long math). Focus on key calculation skills and point-maximizing answer techniques.', topics: ['Short & Long Math', 'Answer Techniques', 'Time Management', 'Exam Requirements'], price: 'from €1490 (incl. 20h tutoring)' },
-			c4: { title: 'International Exam Prep (SAT & more)', level: 'Exam Prep', desc: 'Achieve top scores and stand out in applications. Emphasizes speed, accuracy, and effective problem-solving strategies for SAT-style questions.', topics: ['Speed & Accuracy', 'Test Strategies', 'Pattern Recognition', 'Simulations'], price: 'from €1490 (incl. 20h tutoring)' }
+			c1: {
+				title: 'Entrance Exam Coaching (Business & Engineering)',
+				level: 'Entrance Exams',
+				desc: [
+					'Want to improve your chances of getting into a business or engineering program? This coaching focuses on one crucial area: mathematics.',
+					'I offer personalized math tutoring tailored to the student\'s starting level, goals, and target program. The coaching focuses on deepening understanding, efficient time management, and building effective exam strategies.'
+				],
+				topics: [
+					'Private math tutoring, entirely tailored to the student\'s needs',
+					'4 customized mock exams simulating the actual test situation',
+					'Personal coaching to develop thought models and problem-solving skills',
+					'Tutor-based approach: the student and tutor plan together what topics to cover'
+				],
+				importantNotes: [
+					'The course does not guarantee admission. Outcomes depend on the student\'s starting level, effort, target program, and competition.',
+					'Entrance exams require a strong calculation routine, which cannot be achieved through lessons alone. Significant independent practice is required outside of class.',
+					'Our promise: the student will understand previously challenging math areas, learn to manage time effectively, and develop a strategic approach.',
+					'Cancellation policy: Cancellations must be made at least 24 hours in advance. Late cancellations are not refunded. If the tutor cancels, a makeup lesson is arranged for free.',
+					'Mock exams are pre-tailored to best reflect actual exam conditions.'
+				],
+				price: ''
+			},
+			c2: {
+				title: 'General Mathematics Tutoring',
+				level: 'All Levels',
+				desc: [
+					'Do you need help with math—strengthening the basics, passing courses, or improving grades? This tutoring provides individualized support for students at all levels, from middle school to university.',
+					'Teaching is entirely tailored to your starting level, goals, and current topics. We focus on building understanding and logical thinking so you truly master math—not just survive the exercises.',
+					'Ideal for: preparing for exams, supporting ongoing courses, breaking down difficult topics, or raising grades.'
+				],
+				topics: [
+					'Private math tutoring adapted to the student\'s needs',
+					'Personal guidance and feedback supporting continuous improvement',
+					'Flexible pacing focusing on topics that pose the biggest challenges',
+					'Tutor-based approach: the student and tutor plan the curriculum and pace together'
+				],
+				importantNotes: [
+					'Tutoring does not guarantee specific grades. Progress depends on your starting level, goals, and personal effort.',
+					'Improving in math requires regular practice. Lessons alone are not enough; independent work outside of class is necessary.',
+					'Our promise: the student will understand topics they previously found difficult, develop logical thinking and problem-solving skills, and learn to work more efficiently.',
+					'Cancellation policy: Cancellations must be made at least 24 hours in advance. Late cancellations are not refunded.'
+				],
+				price: ''
+			},
+			c3: {
+				title: 'Matriculation Exam Coaching',
+				level: 'High School',
+				desc: [
+					'Prepare efficiently and purposefully for the matriculation exam with personalized math coaching.',
+					'This tutoring is aimed at both short and long math students who want to improve their skills, strengthen their understanding, and maximize their points in the graduation exams. Teaching is completely tailored to the student\'s starting level, goals, and schedule.',
+					'We focus on the core skills required for the exam: understanding questions, calculating efficiently, and utilizing clear answering techniques that maximize points.'
+				],
+				topics: [
+					'Private math tutoring tailored fully to your level and syllabus',
+					'Customized practice exercises matching exam requirements',
+					'Personal coaching to develop test strategies and time management',
+					'Tutor-based approach: we collaboratively plan which topics to prioritize'
+				],
+				importantNotes: [
+					'Coaching does not guarantee a specific grade. The final result depends on your starting level, effort, goals, and exam performance.',
+					'Success in the exam requires a strong calculation routine and independent practice. The course offers guidance, clarity for difficult topics, and efficient problem-solving methods.',
+					'Our promise: the student will understand key mathematical topics better, learn how to answer clearly to maximize points, and develop confidence.',
+					'Cancellation policy: Cancellations must be made at least 24 hours in advance. Late cancellations are not refunded.'
+				],
+				price: ''
+			},
+			c4: {
+				title: 'International Exam Prep (SAT & more)',
+				level: 'Exam Prep',
+				desc: [
+					'Prepare effectively for international exams like the SAT with personalized math coaching.',
+					'This tutoring is aimed at students who want to achieve high scores and stand out in college applications. Teaching is tailored to your starting level, goals, and schedule, focusing strictly on the mathematical skills and strategies required for the test.',
+					'The coaching emphasizes speed, accuracy, and recognizing question types—skills that are critical in the SAT math section.'
+				],
+				topics: [
+					'Private math tutoring directly targeted at SAT-style questions',
+					'Customized practice materials and mock exams matching the real test',
+					'Personal coaching to develop time management and efficient solving methods',
+					'Tutor-based approach: collaboratively identifying focus areas to reach your target score'
+				],
+				importantNotes: [
+					'Coaching does not guarantee a specific score. Results depend on various factors, including starting level, effort, goals, and the competitive environment.',
+					'Succeeding in SAT math requires calculation routines and repetition. Independent practice outside of class is vital.',
+					'Our promise: the student will gain a deeper understanding of key topics and question types, learn to solve problems faster and with fewer errors.',
+					'Cancellation policy: Cancellations must be made at least 24 hours in advance. Late cancellations are not refunded.'
+				],
+				price: ''
+			}
 		},
 		experience: {
 			title: 'Achievements & Experience',
@@ -119,12 +205,18 @@ export const translations: Record<string, any> = {
 				emailPlaceholder: 'you@example.com',
 				phone: 'Phone (optional)',
 				phonePlaceholder: '+358 xx xxx xxxx',
-				subject: 'Subject',
-				selectSubject: 'Select a subject',
-				subjects: ['Foundation Algebra', 'Calculus', 'Geometry & Proofs', 'Statistics & Probability', 'SAT / ACT Math Prep', 'Linear Algebra', 'Other'],
+				subject: 'Course',
+				selectSubject: 'Select a course',
+				subjects: [
+					'Entrance Exam Coaching (Business & Engineering)',
+					'General Mathematics Tutoring',
+					'Matriculation Exam Coaching',
+					'International Exam Prep (SAT & more)',
+					'Other'
+				],
 				level: 'Your Level',
 				selectLevel: 'Select your level',
-				levels: ['Middle School (Grade 7–9)', 'High School (Grade 10–12)', 'Pre-University / A-Level / IB', 'University / College', 'Adult Learner'],
+				levels: ['Elementary School (Grade 1–6)', 'Middle School (Grade 7–9)', 'High School (Grade 10–12)', 'Pre-University / A-Level / IB', 'University / College', 'Adult Learner'],
 				schedule: 'Preferred Schedule',
 				selectTime: 'Select a time',
 				schedules: ['Morning (8am–12pm)', 'Afternoon (12pm–5pm)', 'Evening (5pm–9pm)', 'Flexible'],
@@ -245,12 +337,98 @@ export const translations: Record<string, any> = {
 			title: 'Kurssitarjonta',
 			brief: 'Mitä tulet oppimaan',
 			desc: 'Strukturoidut opetussuunnitelmat aitoa ymmärrystä varten.',
+			includesLabel: 'Kurssi sisältää:',
+			notesLabel: 'Tärkeää tietoa ja ehdot:',
 			weeks: 'viikkoa',
 			studentsLabel: 'opiskelijaa',
-			c1: { title: 'Matematiikkavalmennus kauppiksen ja tekniikan pääsykokeisiin', level: 'Pääsykokeet', desc: 'Paranna mahdollisuuksiasi päästä kauppakorkeaan tai tekniikan alalle. Yksilöllistä opetusta, joka räätälöidään hakukohteen mukaan.', topics: ['Pääsykoematematiikka', 'Koestrategiat', 'Ajankäyttö', 'Harjoituskokeet'], price: '1990€ (sis. 24h opetus)' },
-			c2: { title: 'Matematiikan tutorointi (peruskoulusta korkeakoulutasolle)', level: 'Kaikki tasot', desc: 'Yksilöllistä tukea peruskoulusta korkeakouluun. Keskitymme ymmärryksen rakentamiseen, loogiseen ajatteluun ja arvosanojen parantamiseen.', topics: ['Ymmärryksen rakentaminen', 'Läksyapu', 'Arvosanojen nostaminen', 'Looginen ajattelu'], price: 'alkaen 50€/h' },
-			c3: { title: 'Matematiikkavalmennus ylioppilaskokeeseen', level: 'Lukio', desc: 'Valmistaudu yo-kokeeseen (lyhyt ja pitkä) tehokkaasti. Keskitymme keskeisiin taitoihin ja pisteitä maksimoivaan vastaustekniikkaan.', topics: ['Lyhyt ja pitkä matikka', 'Vastaustekniikka', 'Ajankäyttö', 'Yo-kokeen vaatimukset'], price: 'alkaen 1490€ (sis. 20h opetus)' },
-			c4: { title: 'Matematiikkavalmennus kansainvälisiin kokeisiin (SAT ym.)', level: 'Koevalmennus', desc: 'Saavuta korkea pistemäärä ja erotu hakuprosessissa. Valmennuksessa painotetaan nopeutta, tarkkuutta ja tehtävätyyppien tunnistamista.', topics: ['Nopeus ja tarkkuus', 'Koestrategiat', 'Tehtävätyypit', 'Koesimulaatiot'], price: 'alkaen 1490€ (sis. 20h opetus)' }
+			c1: {
+				title: 'Matematiikkavalmennus kauppiksen ja tekniikan pääsykokeisiin',
+				level: 'Pääsykokeet',
+				desc: [
+					'Haluatko parantaa mahdollisuuksiasi päästä kauppakorkeaan tai tekniikan alalle? Tämä valmennus keskittyy yhteen ratkaisevaan osa-alueeseen: matematiikkaan.',
+					'Tarjoan yksilöllistä matematiikan opetusta, joka räätälöidään oppilaan lähtötason, tavoitteiden ja hakukohteen mukaan. Valmennus keskittyy ymmärryksen syventämiseen, tehokkaaseen ajankäyttöön sekä toimivien koestrategioiden rakentamiseen.'
+				],
+				topics: [
+					'Yksityisopetusta matematiikassa, täysin oppilaan tarpeiden mukaan',
+					'4 räätälöityä harjoituskoetta, jotka simuloivat todellista koetilannetta',
+					'Henkilökohtaista valmennusta, jossa kehitetään ajattelumalleja ja ongelmanratkaisua',
+					'Tutor-perusteinen ohjaus: oppilas ja tutor suunnittelevat yhdessä sisällön'
+				],
+				importantNotes: [
+					'Kurssi ei takaa sisäänpääsyä. Lopputulos riippuu useista tekijöistä, kuten oppilaan lähtötasosta, työpanoksesta, hakukohteesta ja kilpailutilanteesta.',
+					'Pääsykokeissa vaaditaan vahvaa laskurutiinia. Oppilaan tulee tehdä merkittävä määrä itsenäistä harjoittelua tuntien ulkopuolella. Kurssi tarjoaa ohjausta, tukea ja keinoja ymmärtää vaativia aiheita.',
+					'Kurssi lupaa, että oppilas: ymmärtää haastavia aiheita, oppii käyttämään aikaansa tehokkaammin kokeessa, ja kehittää strategista lähestymistapaa.',
+					'Peruutusehdot: Tunti on peruutettava 24h etukäteen. Myöhässä peruttuja ei hyvitetä. Tutorin peruessa järjestetään korvaava tunti.',
+					'Harjoituskokeet ovat ennalta räätälöityjä todellisen koetilanteen mukaan.'
+				],
+				price: ''
+			},
+			c2: {
+				title: 'Matematiikan tutorointi (peruskoulusta korkeakoulutasolle)',
+				level: 'Kaikki tasot',
+				desc: [
+					'Tarvitsetko apua matematiikassa – perusteiden vahvistamiseen, kurssien läpäisyyn tai arvosanojen parantamiseen? Tämä tutorointi tarjoaa yksilöllistä tukea kaikentasoisille opiskelijoille peruskoulusta aina korkeakouluun asti.',
+					'Opetus räätälöidään täysin oppilaan lähtötason, tavoitteiden ja opiskeltavien aiheiden mukaan. Keskitymme ymmärryksen rakentamiseen, loogiseen ajatteluun sekä siihen, että opit oikeasti hallitsemaan matematiikan – et vain selviämään tehtävistä.',
+					'Tutorointi sopii: kokeisiin valmistautumiseen, kurssien tukemiseen, vaikeiden aiheiden avaamiseen tai arvosanojen nostamiseen.'
+				],
+				topics: [
+					'Yksityisopetusta matematiikassa oppilaan tarpeiden mukaan',
+					'Henkilökohtaista ohjausta ja palautetta, joka tukee jatkuvaa kehittymistä',
+					'Joustavaa etenemistä, keskittyen haastavimpiin aiheisiin',
+					'Tutor-perusteinen lähestymistapa: opiskelusuunnitelma tehdään yhdessä'
+				],
+				importantNotes: [
+					'Tutorointi ei takaa tiettyjä arvosanoja. Kehitys riippuu oppilaan lähtötasosta, tavoitteista ja omasta työpanoksesta.',
+					'Kehittyminen vaatii säännöllistä itsenäistä harjoittelua tuntien ulkopuolella. Tutorointi tarjoaa selkeät työkalut, ymmärryksen ja suunnan oppimiselle.',
+					'Kurssi lupaa, että oppilas: ymmärtää vaikeiksi koettuja aiheita, kehittää ongelmanratkaisutaitoja ja oppii työskentelemään tehokkaammin.',
+					'Peruutusehdot: Peruutus 24h ennen sovittua aikaa. Myöhästyneitä peruutuksia ei hyvitetä. Tutorin peruutukset hyvitetään korvaavalla tunnilla.'
+				],
+				price: ''
+			},
+			c3: {
+				title: 'Matematiikkavalmennus ylioppilaskokeeseen (lyhyt ja pitkä)',
+				level: 'Lukio / Yo',
+				desc: [
+					'Valmistaudu ylioppilaskokeeseen tehokkaasti ja tavoitteellisesti henkilökohtaisessa matematiikan valmennuksessa.',
+					'Tämä tutorointi on suunnattu lyhyen ja pitkän matematiikan opiskelijoille, jotka haluavat maksimoida pisteensä yo-kokeessa. Opetus räätälöidään lähtötason, tavoitteiden ja aikataulun mukaan.',
+					'Keskitymme keskeisiin yo-kokeessa vaadittaviin taitoihin: tehtävien ymmärtämiseen, tehokkaaseen laskemiseen ja pisteitä maksimoivaan vastaustekniikkaan.'
+				],
+				topics: [
+					'Yksityisopetusta täysin oppilaan tason ja oppimäärän mukaan',
+					'Räätälöityä harjoittelua ja tehtäviä yo-kokeen vaatimuksien pohjalta',
+					'Henkilökohtaista valmennusta koestrategian ja ajankäytön kehittämiseksi',
+					'Yhteisesti luotu painotussuunnitelma tutorin kanssa'
+				],
+				importantNotes: [
+					'Valmennus ei takaa tiettyä arvosanaa. Lopputulos riippuu työpanoksesta, tavoitteista ja koesuorituksesta.',
+					'Yo-kokeessa menestyminen vaatii vahvaa laskurutiinia ja itsenäistä harjoittelua. Kurssi tarjoaa ohjausta vaikeisiin aiheisiin ja tehokkaat lähestymistavat.',
+					'Kurssi lupaa, että oppilas ymmärtää aiheet paremmin, oppii vastaamaan pisteitä maksimoivasti ja kehittää varmuutta koetilanteeseen.',
+					'Peruutusehdot: 24h etukäteen. Myöhässä peruttuja ei hyvitetä.'
+				],
+				price: ''
+			},
+			c4: {
+				title: 'Matematiikkavalmennus kansainvälisiin kokeisiin (SAT ym.)',
+				level: 'Koevalmennus',
+				desc: [
+					'Valmistaudu kansainvälisiin kokeisiin, kuten SAT:iin, tehokkaasti henkilökohtaisessa matematiikan valmennuksessa.',
+					'Tämä tutorointi on suunnattu opiskelijoille, jotka haluavat saavuttaa korkean pistemäärän ja erottua hakuprosessissa. Opetus räätälöidään tavoitteiden mukaan.',
+					'Valmennuksessa painotetaan nopeutta, tarkkuutta ja tehtävätyyppien tunnistamista – taitoja, jotka ovat keskeisiä SAT-matematiikkaosiossa.'
+				],
+				topics: [
+					'Yksityisopetusta kohdennettuna SAT-tyyppisiin tehtäviin',
+					'Koesimulaatioita ja harjoitustehtäviä, jotka vastaavat oikeaa koetta',
+					'Henkilökohtaista valmennusta ajankäytön ja ratkaisutapojen hiomiseen',
+					'Tavoitepistemäärän mukainen yksilöllinen painotussuunnitelma'
+				],
+				importantNotes: [
+					'Valmennus ei takaa tiettyä pistemäärää. Tulokset riippuvat lähtötasosta, kilpailutilanteesta ja työpanoksesta.',
+					'SAT-matematiikka vaatii vahvaa rutiinia ja toistoa myös itsenäisesti. Kurssi antaa tehokkaat työkalut ja strategiat.',
+					'Kurssi lupaa, että oppilas oppii ratkaisemaan tehtäviä nopeammin/virheettömämmin ja kehittää tehokkaan koestrategian.',
+					'Peruutusehdot: 24h etukäteen.'
+				],
+				price: ''
+			}
 		},
 		experience: {
 			title: 'Saavutukset ja Kokemus',
@@ -290,12 +468,18 @@ export const translations: Record<string, any> = {
 				emailPlaceholder: 'sinä@esimerkki.fi',
 				phone: 'Puhelin (valinnainen)',
 				phonePlaceholder: '+358 xx xxx xxxx',
-				subject: 'Aihe',
-				selectSubject: 'Valitse aihe',
-				subjects: ['Algebran perusteet', 'Kalkyyli', 'Geometria ja todistukset', 'Tilastotiede ja todennäköisyys', 'Ylioppilaskirjoitusten matematiikka', 'Lineaarialgebra', 'Muu'],
+				subject: 'Kurssi',
+				selectSubject: 'Valitse kurssi',
+				subjects: [
+					'Pääsykoevalmennus (Kauppis & Tekniikka)',
+					'Yleinen matematiikan opetus',
+					'Ylioppilaskoevalmennus',
+					'Kansainvälinen koevalmennus (SAT ym.)',
+					'Muu'
+				],
 				level: 'Tasosi',
 				selectLevel: 'Valitse tasosi',
-				levels: ['Yläkoulu (luokat 7–9)', 'Lukio (luokat 10–12)', 'Ylioppilas / A-Level / IB', 'Yliopisto / Korkeakoulu', 'Aikuisoppija'],
+				levels: ['Alakoulu (luokat 1–6)', 'Yläkoulu (luokat 7–9)', 'Lukio (luokat 10–12)', 'Ylioppilas / A-Level / IB', 'Yliopisto / Korkeakoulu', 'Aikuisoppija'],
 				schedule: 'Toivottu aikataulu',
 				selectTime: 'Valitse ajankohta',
 				schedules: ['Aamu (8–12)', 'Iltapäivä (12–17)', 'Ilta (17–21)', 'Joustava'],

@@ -59,7 +59,7 @@
 			description={t('registration.desc')}
 		/>
 
-		<div class="mx-auto max-w-3xl relative">
+		<div class="mx-auto w-full relative">
 			<!-- Vibrant glassmorphism refraction blobs behind the form -->
 			<div class="absolute -left-12 sm:-left-32 -top-12 sm:-top-24 -z-10 h-64 w-64 md:h-[26rem] md:w-[26rem] rounded-full bg-primary/20 blur-[60px] md:blur-[100px]"></div>
 			<div class="absolute -right-12 sm:-right-32 -bottom-12 sm:-bottom-24 -z-10 h-64 w-64 md:h-[26rem] md:w-[26rem] rounded-full bg-accent/20 blur-[60px] md:blur-[100px]"></div>

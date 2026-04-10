@@ -11,9 +11,10 @@
 			level: t('courses.c1.level') || 'Entrance Exams',
 			levelColor: 'var(--success)',
 
-			price: t('courses.c1.price') || '€1990 (incl. 24h tutoring)',
-			description: t('courses.c1.desc') || 'Improve chances of admission.',
-			topics: t('courses.c1.topics') || []
+			price: t('courses.c1.price') || '€1990',
+			description: Array.isArray(t('courses.c1.desc')) ? t('courses.c1.desc') : [],
+			topics: Array.isArray(t('courses.c1.topics')) ? t('courses.c1.topics') : [],
+			importantNotes: Array.isArray(t('courses.c1.importantNotes')) ? t('courses.c1.importantNotes') : []
 		},
 		{
 			icon: 'lucide:function-square',
@@ -21,8 +22,9 @@
 			level: t('courses.c2.level') || 'All Levels',
 			levelColor: 'var(--purple)',
 			price: t('courses.c2.price') || 'from €50/h',
-			description: t('courses.c2.desc') || 'Individualized support.',
-			topics: t('courses.c2.topics') || []
+			description: Array.isArray(t('courses.c2.desc')) ? t('courses.c2.desc') : [],
+			topics: Array.isArray(t('courses.c2.topics')) ? t('courses.c2.topics') : [],
+			importantNotes: Array.isArray(t('courses.c2.importantNotes')) ? t('courses.c2.importantNotes') : []
 		},
 		{
 			icon: 'lucide:graduation-cap',
@@ -30,8 +32,9 @@
 			level: t('courses.c3.level') || 'High School',
 			levelColor: 'var(--warning)',
 			price: t('courses.c3.price') || 'from €1490',
-			description: t('courses.c3.desc') || 'Prepare efficiently for Yo-exam.',
-			topics: t('courses.c3.topics') || []
+			description: Array.isArray(t('courses.c3.desc')) ? t('courses.c3.desc') : [],
+			topics: Array.isArray(t('courses.c3.topics')) ? t('courses.c3.topics') : [],
+			importantNotes: Array.isArray(t('courses.c3.importantNotes')) ? t('courses.c3.importantNotes') : []
 		},
 		{
 			icon: 'lucide:globe',
@@ -39,8 +42,9 @@
 			level: t('courses.c4.level') || 'Exam Prep',
 			levelColor: 'var(--accent)',
 			price: t('courses.c4.price') || 'from €1490',
-			description: t('courses.c4.desc') || 'Achieve top scores in SAT.',
-			topics: t('courses.c4.topics') || []
+			description: Array.isArray(t('courses.c4.desc')) ? t('courses.c4.desc') : [],
+			topics: Array.isArray(t('courses.c4.topics')) ? t('courses.c4.topics') : [],
+			importantNotes: Array.isArray(t('courses.c4.importantNotes')) ? t('courses.c4.importantNotes') : []
 		}
 	]);
 
@@ -61,7 +65,7 @@
 			description={t('courses.desc')}
 		/>
 
-		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
 			{#each courses as course, i}
 				<AnimateOnScroll animation="bounce" delay={i * 120} threshold={0.1}>
 					<article class="group card-modern hover-lift relative flex h-full flex-col overflow-hidden !p-0">
@@ -93,21 +97,35 @@
 								</div>
 							</div>
 
-							<p class="text-muted-foreground mt-3 text-sm leading-relaxed">{course.description}</p>
+							<div class="mt-4 space-y-3">
+								{#each course.description as paragraph}
+									<p class="text-muted-foreground text-sm leading-relaxed">{paragraph}</p>
+								{/each}
+							</div>
 						</div>
 
 						<div class="border-border/50 border-t px-6 py-4">
-							<p class="text-muted-foreground mb-2.5 text-xs font-semibold uppercase tracking-wider">{t('footer.topicsCovered') || 'Topics Covered'}</p>
-							<div class="flex flex-wrap gap-2">
-								{#each course.topics as topic}
-									<span
-										class="rounded-lg px-2.5 py-1 text-xs"
-										style="background: var(--secondary); color: var(--secondary-foreground);"
-									>
-										{topic}
-									</span>
+							<p class="text-foreground mb-3 text-sm font-bold">{t('courses.includesLabel') || 'Course includes:'}</p>
+							<ul class="space-y-2">
+								{#each course.topics as includeItem}
+									<li class="flex items-start gap-2">
+										<Icon icon="lucide:check-circle-2" class="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+										<span class="text-muted-foreground text-sm">{includeItem}</span>
+									</li>
 								{/each}
-							</div>
+							</ul>
+						</div>
+
+						<div class="bg-muted/30 border-border/50 border-t px-6 py-4">
+							<p class="text-foreground mb-3 text-sm font-bold flex items-center gap-2">
+								<Icon icon="lucide:info" class="h-4 w-4 text-accent" />
+								{t('courses.notesLabel') || 'Important Notes:'}
+							</p>
+							<ul class="space-y-2 list-disc list-outside ml-4">
+								{#each course.importantNotes as note}
+									<li class="text-muted-foreground text-xs leading-relaxed">{note}</li>
+								{/each}
+							</ul>
 						</div>
 
 						<div class="mt-auto px-6 pb-6 pt-4">

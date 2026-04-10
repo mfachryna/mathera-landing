@@ -25,28 +25,19 @@
 			<article class="card-modern !p-0 overflow-hidden bg-background/60 backdrop-blur-md">
 
 				<!-- ═══ Section 1: General — Pic #1 + Greeting ═══ -->
-				<div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-0">
+				<div class="grid grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[380px_1fr] gap-0">
 					<!-- Pic #1 -->
 					<div class="relative h-64 md:h-auto overflow-hidden bg-muted/20">
 						<img
 							src="/images/avatar/avatar.jpeg"
 							alt="Aman"
-							class="absolute inset-0 w-full h-full object-cover object-top"
+							class="absolute inset-0 w-full h-full object-cover object-center"
 						/>
 						<div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/10"></div>
 					</div>
 
 					<!-- Text -->
 					<div class="p-8 md:p-10 flex flex-col justify-center">
-						<div class="flex items-center gap-3 mb-5">
-							<div
-								class="inline-flex h-10 w-10 items-center justify-center rounded-xl shadow-lg shadow-primary/20"
-								style="background: var(--gradient-primary); color: var(--primary-foreground);"
-							>
-								<Icon icon="lucide:user" class="h-5 w-5" />
-							</div>
-							<h3 class="text-lg font-bold">{t('about.general.title')}</h3>
-						</div>
 
 						<p class="gradient-text text-2xl md:text-3xl font-bold mb-4 leading-tight">
 							{t('about.general.greeting')}
@@ -133,22 +124,6 @@
 				<!-- Divider -->
 				<div class="mx-8 md:mx-10">
 					<div class="h-px w-full" style="background: oklch(from var(--primary) l c h / 0.12);"></div>
-				</div>
-
-				<!-- ═══ Footer CTA ═══ -->
-				<div class="p-8 md:p-10 text-center">
-					<p class="text-foreground text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto mb-6">
-						{t('about.footer')}
-					</p>
-
-					<div class="flex flex-wrap justify-center gap-3">
-						{#each badges as badge}
-							<div class="badge-modern">
-								<Icon icon={badge.icon} class="mr-1.5 h-4 w-4" />
-								{badge.label}
-							</div>
-						{/each}
-					</div>
 				</div>
 
 			</article>
