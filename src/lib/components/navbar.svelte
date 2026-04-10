@@ -11,7 +11,8 @@
 	let navLinks = $derived([
 		{ name: t('nav.about'), href: '/#about', isCTA: false },
 		{ name: t('nav.expertise'), href: '/#skills', isCTA: false },
-		{ name: t('nav.courses'), href: '/#courses', isCTA: false }
+		{ name: t('nav.courses'), href: '/#courses', isCTA: false },
+		{ name: t('nav.expertise'), href: '/#expertise', isCTA: false }
 	]);
 
 	function handleScroll() {
@@ -75,11 +76,10 @@
 	<nav
 		class="flex w-full items-center justify-between transition-all duration-500 ease-out {isScrolled
 			? 'glass-effect shadow-soft mx-4 max-w-4xl rounded-2xl px-4 py-2'
-			: 'container-modern !mt-2 px-4 py-2'}"
+			: 'container-modern !mt-2 px-4 py-2 border border-transparent'}"
 		class:backdrop-blur-xl={isScrolled}
 		class:hidden={isSidebarOpen}
 		style="
-			{isScrolled ? 'background: var(--card-foreground);' : ''}
 			transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 		"
 	>

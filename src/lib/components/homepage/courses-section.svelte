@@ -6,64 +6,41 @@
 
 	let courses = $derived([
 		{
-			icon: 'lucide:function-square',
-			title: t('courses.c1.title') || 'Foundation Algebra',
-			level: t('courses.c1.level') || 'Beginner',
+			icon: 'lucide:briefcase',
+			title: t('courses.c1.title') || 'Entrance Exam Coaching',
+			level: t('courses.c1.level') || 'Entrance Exams',
 			levelColor: 'var(--success)',
-			duration: '8 ' + (t('courses.weeks') || 'weeks'),
-			students: '45+',
-			description: t('courses.c1.desc') || 'Build a rock-solid algebra foundation.',
-			topics: t('courses.c1.topics') || ['Linear Equations', 'Polynomials', 'Factoring', 'Functions & Graphs']
+
+			price: t('courses.c1.price') || '€1990 (incl. 24h tutoring)',
+			description: t('courses.c1.desc') || 'Improve chances of admission.',
+			topics: t('courses.c1.topics') || []
 		},
 		{
-			icon: 'lucide:trending-up',
-			title: t('courses.c2.title') || 'Calculus Mastery',
-			level: t('courses.c2.level') || 'Advanced',
+			icon: 'lucide:function-square',
+			title: t('courses.c2.title') || 'General Mathematics Tutoring',
+			level: t('courses.c2.level') || 'All Levels',
 			levelColor: 'var(--purple)',
-			duration: '12 ' + (t('courses.weeks') || 'weeks'),
-			students: '30+',
-			description: t('courses.c2.desc') || 'Conquer calculus with deep conceptual understanding.',
-			topics: t('courses.c2.topics') || ['Limits & Continuity', 'Derivatives', 'Integration', 'Applications']
-		},
-		{
-			icon: 'lucide:shapes',
-			title: t('courses.c3.title') || 'Geometry & Proofs',
-			level: t('courses.c3.level') || 'Intermediate',
-			levelColor: 'var(--warning)',
-			duration: '10 ' + (t('courses.weeks') || 'weeks'),
-			students: '28+',
-			description: t('courses.c3.desc') || 'Develop spatial reasoning and rigorous proof-writing skills.',
-			topics: t('courses.c3.topics') || ['Triangles & Circles', 'Coordinate Geometry', 'Trigonometry', 'Proofs']
-		},
-		{
-			icon: 'lucide:bar-chart-3',
-			title: t('courses.c4.title') || 'Statistics & Probability',
-			level: t('courses.c4.level') || 'Intermediate',
-			levelColor: 'var(--purple-light)',
-			duration: '8 ' + (t('courses.weeks') || 'weeks'),
-			students: '35+',
-			description: t('courses.c4.desc') || 'Understand data, chance, and inference.',
-			topics: t('courses.c4.topics') || ['Descriptive Stats', 'Probability', 'Distributions', 'Hypothesis Testing']
+			price: t('courses.c2.price') || 'from €50/h',
+			description: t('courses.c2.desc') || 'Individualized support.',
+			topics: t('courses.c2.topics') || []
 		},
 		{
 			icon: 'lucide:graduation-cap',
-			title: t('courses.c5.title') || 'SAT / ACT Math Prep',
-			level: t('courses.c5.level') || 'Exam Prep',
-			levelColor: 'var(--accent)',
-			duration: '6 ' + (t('courses.weeks') || 'weeks'),
-			students: '60+',
-			description: t('courses.c5.desc') || 'Targeted preparation for standardized tests.',
-			topics: t('courses.c5.topics') || ['Heart of Algebra', 'Problem Solving', 'Data Analysis', 'Advanced Math']
+			title: t('courses.c3.title') || 'Matriculation Exam Coaching',
+			level: t('courses.c3.level') || 'High School',
+			levelColor: 'var(--warning)',
+			price: t('courses.c3.price') || 'from €1490',
+			description: t('courses.c3.desc') || 'Prepare efficiently for Yo-exam.',
+			topics: t('courses.c3.topics') || []
 		},
 		{
-			icon: 'lucide:table-properties',
-			title: t('courses.c6.title') || 'Linear Algebra',
-			level: t('courses.c6.level') || 'Advanced',
-			levelColor: 'var(--purple)',
-			duration: '10 ' + (t('courses.weeks') || 'weeks'),
-			students: '18+',
-			description: t('courses.c6.desc') || 'Master vectors, matrices, and eigenvalues.',
-			topics: t('courses.c6.topics') || ['Vectors & Spaces', 'Matrix Operations', 'Eigenvalues', 'Applications']
+			icon: 'lucide:globe',
+			title: t('courses.c4.title') || 'International Exam Prep',
+			level: t('courses.c4.level') || 'Exam Prep',
+			levelColor: 'var(--accent)',
+			price: t('courses.c4.price') || 'from €1490',
+			description: t('courses.c4.desc') || 'Achieve top scores in SAT.',
+			topics: t('courses.c4.topics') || []
 		}
 	]);
 
@@ -134,18 +111,12 @@
 						</div>
 
 						<div class="mt-auto px-6 pb-6 pt-4">
-							<div class="mb-4 flex items-center gap-4 text-xs text-muted-foreground">
-								<span class="flex items-center gap-1">
-									<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+							<div class="mb-4 flex items-center md:items-start text-sm font-medium text-foreground">
+								<span class="flex items-center gap-1.5">
+									<svg class="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.64-2.25 1.64-1.74 0-2.33-.89-2.41-1.76H7.73c.12 1.86 1.51 2.96 3.17 3.3V19h2.36v-1.65c1.88-.34 2.85-1.51 2.85-3.04 0-2.4-1.99-3-3.8-3.45z"></path>
 									</svg>
-									{course.duration}
-								</span>
-								<span class="flex items-center gap-1">
-									<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
-									</svg>
-									{course.students} {t('courses.studentsLabel') || 'students'}
+									{course.price}
 								</span>
 							</div>
 							<button

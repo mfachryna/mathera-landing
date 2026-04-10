@@ -3,6 +3,7 @@
 	import AnimateOnScroll from '$lib/components/animate-on-scroll.svelte';
 	import PageTitle from '../page-title.svelte';
 	import { t } from '$lib/i18n.svelte';
+	import Icon from '@iconify/svelte';
 
 	let form = $state({
 		name: '',
@@ -80,8 +81,13 @@
 						<p class="text-muted-foreground max-w-md">
 							Thank you! Your registration has been received.<br />
 							Mathera will reach out within 24 hours to confirm your first session.
-							Get ready to unlock your mathematical potential!
 						</p>
+						<div class="mt-4 flex items-start gap-2 text-left bg-primary/10 text-primary p-3 rounded-lg border border-primary/20 max-w-md w-full">
+							<Icon icon="lucide:message-circle" class="h-5 w-5 shrink-0 mt-0.5" />
+							<p class="text-sm">
+								{t('registration.form.whatsappNotice') || 'Please note: All direct contact and scheduling will be handled securely via company WhatsApp.'}
+							</p>
+						</div>
 						<button
 							class="btn-outline mt-8"
 							onclick={() => (submitted = false)}
@@ -199,12 +205,19 @@
 								class="input-modern min-h-28 resize-y"
 								placeholder={t('registration.form.messagePlaceholder') || 'What would you like to achieve? Any specific struggles or upcoming exams?'}
 							></textarea>
+
+								<p class="text-muted-foreground text-xs opacity-70">
+									<span style="color: var(--accent);">*</span> {t('registration.form.required') || 'Required fields'}
+								</p>
 						</div>
 
 						<div class="flex items-center justify-between gap-4 pt-2">
-							<p class="text-muted-foreground text-xs">
-								<span style="color: var(--accent);">*</span> {t('registration.form.required') || 'Required fields'}
-							</p>
+							<div class="flex flex-col gap-1.5">
+								<p class="text-xs text-primary/80 font-medium flex items-center gap-1.5">
+									<Icon icon="lucide:message-circle" class="h-3.5 w-3.5" />
+									{t('registration.form.whatsappNotice') || 'Please note: All direct contact and scheduling will be handled securely via company WhatsApp.'}
+								</p>
+							</div>
 							<button
 								type="submit"
 								class="btn-modern flex items-center gap-2 disabled:cursor-not-allowed disabled:opacity-60"

@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let src = '/images/avatar/avatar.webp';
+	export let src = '/images/avatar/avatar.jpeg';
 	export let size = '';
 	export let alt = 'Profile picture';
 </script>

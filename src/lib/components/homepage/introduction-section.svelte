@@ -98,7 +98,10 @@
 	]);
 </script>
 
-
+<svelte:head>
+	<title>{t('about.title') || 'Mathera'} - {t('hero.title') || 'Math Tutor'}</title>
+	<meta name="description" content={t('hero.subtitle') || "Expert mathematics tutoring by Mathera."} />
+</svelte:head>
 
 <section
 	class="relative flex min-h-screen w-full flex-col overflow-hidden"
@@ -108,7 +111,7 @@
 	<div
 		class="container-modern w-full relative z-10 flex flex-1 flex-col items-center justify-start pt-24 md:pt-32 pb-4"
 	>
-		<div class="mx-auto w-full max-w-4xl space-y-6 text-center">
+		<div class="mx-auto w-full space-y-6 text-center">
 			<div class="mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5"
 				style="border-color: oklch(from var(--primary) l c h / 0.25); background: oklch(from var(--primary) l c h / 0.07);"
 			>
@@ -122,18 +125,21 @@
 					<span class="text-muted-foreground text-sm font-medium uppercase tracking-widest">
 						{t('hero.welcome')}
 					</span>
-					<h1 class="mt-2 leading-tight text-responsive-xl font-bold">
-						<span class="text-foreground">{t('hero.title') || 'Your Path to'}</span><br />
-						<span class="gradient-text relative block h-[2.8em] md:h-[1.5em] w-full">
-							{currentText}
+					<h1 class="mt-2 text-responsive-xl font-bold text-center w-full max-w-full">
+						<span class="text-foreground leading-tight block mb-2">{t('hero.title') || 'Your Path to'}</span>
+						<!-- Inline wrapper allows natural wrapping of text on mobile without breaking 100vw, while keeping cursor attached -->
+						<div class="mt-2 min-h-[3em] md:min-h-[1.5em] w-full break-words">
+							<span class="gradient-text leading-snug inline" style="-webkit-box-decoration-break: clone; box-decoration-break: clone;">
+								{currentText}
+							</span>
 							<span
-								class="ml-1 inline-block h-[0.85em] w-[4px] align-baseline"
+								class="ml-1 inline-block h-[0.75em] w-[4px] align-baseline"
 								class:opacity-100={cursorVisible}
 								class:opacity-0={!cursorVisible}
-								style="background: var(--accent);"
+								style="background: var(--accent); position: relative; top: 0.1em;"
 								aria-hidden="true"
 							></span>
-						</span>
+						</div>
 					</h1>
 				</div>
 
@@ -142,9 +148,13 @@
 				</div>
 			</div>
 
-			<p class="text-muted-foreground mx-auto max-w-2xl text-base leading-relaxed sm:text-lg pt-4" style="min-height: 5em;">
-				{t('hero.subtitle')}
-			</p>
+			<div class="mx-auto w-full pt-4 space-y-4" style="min-height: 6em;">
+				{#each (Array.isArray(t('hero.subtitle')) ? t('hero.subtitle') : []) as paragraph}
+					<p class="text-muted-foreground text-base leading-relaxed sm:text-lg">
+						{paragraph}
+					</p>
+				{/each}
+			</div>
 
 			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
 				<button class="btn-modern group" onclick={() => smoothScrollTo('courses')}>
@@ -161,7 +171,7 @@
 			</div>
 		</div>
 
-		<div class="mt-12 w-full max-w-4xl">
+		<div class="mt-12 w-full">
 			<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
 				{#each stats as stat, i}
 					<div

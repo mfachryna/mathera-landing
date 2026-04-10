@@ -9,7 +9,10 @@ export const translations: Record<string, any> = {
 		hero: {
 			title: 'Your Path to',
 			words: ['Mathematical Mastery.', 'Exam Success.', 'Academic Excellence.', 'True Understanding.'],
-			subtitle: 'Hi, I\'m Mathera, a passionate mathematics educator dedicated to making complex concepts click. From foundational algebra to advanced calculus, I craft personalized learning journeys that build real understanding, not just exam scores.',
+			subtitle: [
+				'We offer personalized mathematics tutoring for middle school, high school, and university entrance exams. We help you build a deep understanding of the subject, improve your grades, and confidently succeed in your exams.',
+				'Every lesson is fully tailored to your current level and goals. Whether you need to strengthen foundational concepts, break down complex topics, or prepare intensively for an upcoming exam.'
+			],
 			cta: 'Start Learning Today',
 			cta_short: 'Enroll Now',
 			scroll: 'Scroll to explore',
@@ -21,15 +24,25 @@ export const translations: Record<string, any> = {
 			brief: 'Get to know your tutor',
 			general: {
 				title: 'General',
-				desc: 'Hi, I\'m Aman and I will be your tutor. I have over 10 years of experience in tutoring, and I have helped more than 50 students achieve their goals. Whether it\'s raising grades, understanding difficult topics, preparing for entrance exams, or matriculation exams, together we will build a plan that works for you. My goal is simple: to help you succeed and achieve what you consider important.'
+				greeting: 'Hi,',
+				paragraphs: [
+					'I\'m Aman and I will be your tutor. I have over 10 years of experience in tutoring, and I have helped more than 50 students achieve their goals. Whether it\'s raising grades, understanding difficult topics, preparing for entrance exams, or matriculation exams, together we will build a plan that works for you.',
+					'My goal is simple: to help you succeed and achieve what you consider important.'
+				]
 			},
 			education: {
 				title: 'Education & Background',
-				desc: 'I graduated from high school in the science track and completed my degree in Engineering Physics and Mathematics at Aalto University. I currently work in artificial intelligence. Mathematics is not just a school subject or a job to me, but also a long-time hobby and passion. Tutoring has been a constant part of my life alongside my studies and career.'
+				paragraphs: [
+					'I graduated from high school in the science track and completed my degree in Engineering Physics and Mathematics at Aalto University. I currently work in artificial intelligence.',
+					'I have served as a university course assistant for nearly five years across more than ten different courses. In this role, I have taught, led exercises, and helped students understand difficult topics clearly. I have received a great deal of positive feedback for my teaching, especially for clarity, patience, and the way I explain things in an understandable manner.',
+					'Mathematics is not just a school subject or a job to me, but also a long-time hobby and passion. Tutoring has been a constant part of my life alongside my studies and career.'
+				]
 			},
 			experience: {
 				title: 'Competition Experience',
-				desc: 'I have participated in mathematics and science competitions since primary school. My experience includes: mental math competitions, MAOL competitions, math olympiad coaching, math camps, and the IMC (International Mathematics Competition). I have achieved several good placements, honorable mentions, and medals. This background has given me a strong understanding of mathematics and how it is learned effectively.'
+				intro: 'I have participated in mathematics and science competitions since primary school. My experience includes:',
+				bullets: ['Mental math competitions', 'MAOL competitions', 'Math Olympiad training', 'Math camps', 'IMC (International Mathematics Competition)'],
+				outro: 'I have achieved several good placements, honorable mentions, and medals. This background has given me a strong understanding of mathematics and how it is learned effectively.'
 			},
 			footer: 'If you want clarity in mathematics, confidence for exams, or to raise your grades, I am happy to help. Let\'s make your goals a reality together.',
 			badges: {
@@ -63,45 +76,36 @@ export const translations: Record<string, any> = {
 			desc: 'Structured curricula designed for real understanding.',
 			weeks: 'weeks',
 			studentsLabel: 'students',
-			c1: { title: 'Foundation Algebra', level: 'Beginner', desc: 'Build a rock-solid algebra foundation. Covers variables, equations, inequalities, functions, and graphing.', topics: ['Linear Equations', 'Polynomials', 'Factoring', 'Functions & Graphs'] },
-			c2: { title: 'Calculus Mastery', level: 'Advanced', desc: 'Conquer calculus with deep conceptual understanding. Limits, derivatives, integrals, and real-world applications.', topics: ['Limits & Continuity', 'Derivatives', 'Integration', 'Applications'] },
-			c3: { title: 'Geometry & Proofs', level: 'Intermediate', desc: 'Develop spatial reasoning and rigorous proof-writing skills. From Euclidean to coordinate geometry.', topics: ['Triangles & Circles', 'Coordinate Geometry', 'Trigonometry', 'Proofs'] },
-			c4: { title: 'Statistics & Probability', level: 'Intermediate', desc: 'Understand data, chance, and inference. Essential for science, economics, and everyday decision-making.', topics: ['Descriptive Stats', 'Probability', 'Distributions', 'Hypothesis Testing'] },
-			c5: { title: 'SAT / ACT Math Prep', level: 'Exam Prep', desc: 'Targeted preparation for standardized tests. Learn time-saving strategies and systematic approaches.', topics: ['Heart of Algebra', 'Problem Solving', 'Data Analysis', 'Advanced Math'] },
-			c6: { title: 'Linear Algebra', level: 'Advanced', desc: 'Master vectors, matrices, linear transformations, and eigenvalues with geometric intuition.', topics: ['Vectors & Spaces', 'Matrix Operations', 'Eigenvalues', 'Applications'] }
+			c1: { title: 'Entrance Exam Coaching (Business & Engineering)', level: 'Entrance Exams', desc: 'Improve your chances of admission. Personalized math instruction tailored to your targets, focusing on strategy and time management.', topics: ['Entrance Exam Math', 'Test Strategies', 'Time Management', 'Mock Exams'], price: '€1990 (incl. 24h tutoring)' },
+			c2: { title: 'General Mathematics Tutoring', level: 'All Levels', desc: 'Individualized support from middle school to university. We focus on building deep understanding, logical thinking, and improving grades.', topics: ['Concept Building', 'Homework Support', 'Grade Improvement', 'Logical Thinking'], price: 'from €50/h' },
+			c3: { title: 'Matriculation Exam Coaching', level: 'High School', desc: 'Prepare efficiently for the Finnish yo-exam (short & long math). Focus on key calculation skills and point-maximizing answer techniques.', topics: ['Short & Long Math', 'Answer Techniques', 'Time Management', 'Exam Requirements'], price: 'from €1490 (incl. 20h tutoring)' },
+			c4: { title: 'International Exam Prep (SAT & more)', level: 'Exam Prep', desc: 'Achieve top scores and stand out in applications. Emphasizes speed, accuracy, and effective problem-solving strategies for SAT-style questions.', topics: ['Speed & Accuracy', 'Test Strategies', 'Pattern Recognition', 'Simulations'], price: 'from €1490 (incl. 20h tutoring)' }
 		},
 		experience: {
-			title: 'Work Experience',
-			brief: 'My professional journey',
+			title: 'Achievements & Experience',
+			brief: 'My journey',
 			subtitle: 'A timeline of my growth as an educator and mathematician',
-			types: { fullTime: 'Full-time', partTime: 'Part-time', contract: 'Contract', freelance: 'Freelance' },
+			types: { competition: 'Competition', academic: 'Academic', professional: 'Professional' },
 			e1: {
-				role: 'Senior Mathematics Tutor',
-				institution: 'Mathera Tutoring Practice',
-				period: 'Jan 2022 to Present',
-				desc: 'Running an independent tutoring practice serving high school and university students. Developed customized curricula for 50+ students, achieving a 98% exam pass rate. Specializing in calculus, algebra, and SAT math preparation.',
-				highlights: ['200+ sessions delivered', '98% pass rate', 'Curriculum development', 'SAT coaching']
+				role: 'Honorable Mention',
+				institution: 'International Mathematics Competition for University Students (IMC)',
+				period: 'Recent',
+				desc: 'Represented Aalto University at the prestigious International Mathematics Competition (IMC), competing against top university students globally and earning an Honorable Mention. My extensive background in national MAOL competitions and Math Olympiads gives me a unique ability to teach advanced problem-solving bridging school math and university hurdles.',
+				highlights: ['Honorable Mention IMC', 'MAOL Competitions', 'Math Olympiads', 'Mental Math']
 			},
 			e2: {
-				role: 'Mathematics Teaching Assistant',
+				role: 'Engineering Physics and Mathematics Student',
 				institution: 'Aalto University',
-				period: 'Aug 2020 to Dec 2021',
-				desc: 'Assisted professors in teaching Calculus I & II and Linear Algebra to undergraduate students. Facilitated weekly tutorial sessions, graded assignments, and provided one-on-one support during office hours.',
-				highlights: ['Calculus I & II', 'Linear Algebra', '120+ students assisted', 'Tutorial facilitation']
+				period: 'Aug 2020 to Present',
+				desc: 'Studying Engineering Physics and Mathematics. I work in the field of artificial intelligence and have served as a university Teaching Assistant, facilitating tutorials and guiding students through rigorous university calculus and linear algebra.',
+				highlights: ['Engineering Physics', 'Mathematics', 'Teaching Assistant', 'AI Development']
 			},
 			e3: {
-				role: 'Math Olympiad Coach',
-				institution: 'Sunrise High School',
-				period: 'Mar 2019 to Jul 2020',
-				desc: "Coached the school's Math Olympiad team. Designed challenging problem sets, ran weekly practice sessions, and mentored students through regional and national competitions. Team placed 2nd nationally.",
-				highlights: ['Olympiad preparation', 'Problem set design', '2nd place nationally', 'Team mentorship']
-			},
-			e4: {
-				role: 'Online Math Tutor',
-				institution: 'AI Development / Freelance',
-				period: 'Jan 2018 to Feb 2019',
-				desc: 'Provided online mathematics tutoring to students across different countries and curricula (IB, Cambridge A-Level, US AP Math). Adapted teaching methods for asynchronous and synchronous online learning.',
-				highlights: ['IB Mathematics', 'Cambridge A-Level', 'AP Calculus', 'Online teaching']
+				role: 'Independent Mathematics Tutor',
+				institution: 'Mathera',
+				period: '10+ Years',
+				desc: 'Over 10 years of experience providing private mathematics tuition. I have helped 50+ students achieve their goals—whether raising grades, passing university entrance exams, excelling in matriculation exams, or building foundational confidence.',
+				highlights: ['10+ Years Experience', '50+ Students', 'Custom Curricula', 'Entrance Exams']
 			}
 		},
 		registration: {
@@ -129,7 +133,8 @@ export const translations: Record<string, any> = {
 				required: 'Required fields',
 				submit: 'Send',
 				errorRequired: 'Please fill in all required fields.',
-				successMessage: '🎉 Registration received! Mathera will reach out within 24 hours.'
+				successMessage: '🎉 Registration received! Mathera will reach out within 24 hours.',
+				whatsappNotice: 'Please note: All direct contact and scheduling will be handled securely via company WhatsApp.'
 			}
 		},
 		stats: {
@@ -151,7 +156,7 @@ export const translations: Record<string, any> = {
 				'∞ There are more types of infinity than one.',
 				'√ The square root symbol is called a "radical".'
 			],
-			tagline: '∑ Master Mathematics with Mathera'
+			motto: '∑ Master Mathematics with Mathera'
 		},
 		seo: {
 			title: 'Mathera - Expert Mathematics Tutoring',
@@ -169,8 +174,16 @@ export const translations: Record<string, any> = {
 		},
 		hero: {
 			title: 'Polkusi kohti',
-			words: ['Matemaattista Mestarillisuutta.', 'Menestystä Kokeissa.', 'Akateemista Huippuosaamista.', 'Todellista Ymmärrystä.'],
-			subtitle: 'Moi, olen Mathera, intohimoinen matematiikan opettaja, joka on omistautunut tekemään monimutkaisista käsitteistä selkeitä. Perusalgebrasta edistyneeseen kalkyyliin, räätälöin oppimispolkuja, jotka rakentavat aitoa ymmärrystä, eivät pelkkiä koearvosanoja.',
+			words: [
+				'Matematiikan mestaruutta.',
+				'Erinomaista koemenestystä.',
+				'Akateemista huippuosaamista.',
+				'Aitoa ymmärrystä.'
+			],
+			subtitle: [
+				'Tarjoamme yksilöllistä matematiikan opetusta yläkoululaisille, lukiolaisille ja pääsykokeisiin valmistautuville. Autamme sinua ymmärtämään asiat kunnolla, nostamaan arvosanojasi ja onnistumaan kokeissa.',
+				'Opetus räätälöidään aina sinun tasosi ja tavoitteidesi mukaan – oli kyse perusasioiden vahvistamisesta, vaikeiden aiheiden avaamisesta tai tavoitteellisesta valmistautumisesta kokeisiin.'
+			],
 			cta: 'Aloita oppiminen tänään',
 			cta_short: 'Ilmoittaudu nyt',
 			scroll: 'Selaa tutkiaksesi',
@@ -182,15 +195,25 @@ export const translations: Record<string, any> = {
 			brief: 'Tutustu tuutoriisi',
 			general: {
 				title: 'Yleisesti',
-				desc: 'Heippa, olen Aman ja tulen olemaan tuutorisi. Minulla on yli 10 vuoden kokemus tutoroinnista, ja olen auttanut yli 50 oppilasta saavuttamaan omat tavoitteensa. Oli kyse arvosanojen korottamisesta, vaikeiden asioiden ymmärtämisestä, pääsykokeisiin valmistautumisesta tai ylioppilaskirjoituksista, rakennamme yhdessä sinulle toimivan suunnitelman. Tavoitteeni on yksinkertainen: auttaa sinua onnistumaan ja saavuttamaan se, mitä itse pidät tärkeänä.'
+				greeting: 'Heippa,',
+				paragraphs: [
+					'olen Aman ja tulen olemaan tuutorisi. Minulla on yli 10 vuoden kokemus tutoroinnista, ja olen auttanut yli 50 oppilasta saavuttamaan omat tavoitteensa. Oli kyse arvosanojen korottamisesta, vaikeiden asioiden ymmärtämisestä, pääsykokeisiin valmistautumisesta tai ylioppilaskirjoituksista, rakennamme yhdessä sinulle toimivan suunnitelman.',
+					'Tavoitteeni on yksinkertainen: auttaa sinua onnistumaan ja saavuttamaan se, mitä itse pidät tärkeänä.'
+				]
 			},
 			education: {
 				title: 'Koulutus ja tausta',
-				desc: 'Olen valmistunut lukiosta tiedelinjalta ja suorittanut tutkintoni Aalto-yliopistossa teknillisestä matematiikasta. Tällä hetkellä työskentelen tekoälyn parissa. Matematiikka ei ole minulle pelkästään oppiaine tai työ, vaan myös pitkäaikainen harrastus ja intohimo. Tutorointi on kulkenut mukana elämässäni jatkuvasti opintojen ja työelämän rinnalla.'
+				paragraphs: [
+					'Olen valmistunut lukiosta tiedelinjalta ja suorittanut tutkintoni Aalto-yliopistossa teknillisestä matematiikasta. Tällä hetkellä työskentelen tekoälyn parissa.',
+					'Olen toiminut lähes viiden vuoden ajan yliopistolla kurssiassistenttina yli kymmenellä eri kurssilla. Tässä roolissa olen opettanut, ohjannut harjoituksia ja auttanut opiskelijoita ymmärtämään vaikeita aiheita selkeästi. Olen saanut opetuksestani runsaasti positiivista palautetta, erityisesti selkeydestä, kärsivällisyydestä ja tavastani selittää asiat ymmärrettävästi.',
+					'Matematiikka ei ole minulle pelkästään oppiaine tai työ, vaan myös pitkäaikainen harrastus ja intohimo. Tutorointi on kulkenut mukana elämässäni jatkuvasti opintojen ja työelämän rinnalla.'
+				]
 			},
 			experience: {
 				title: 'Kilpailukokemus',
-				desc: 'Olen osallistunut matematiikan ja luonnontieteiden kilpailuihin jo ala-asteelta lähtien. Kokemusta on muun muassa: päässälaskukilpailuista, MAOL-kilpailuista, matematiikkaolympialaisten valmennuksesta, matematiikkaleireistä ja IMC:stä (International Mathematics Competition). Olen saavuttanut kilpailuissa useita hyviä sijoituksia, kunniamainintoja ja mitaleja. Tämä tausta on antanut minulle vahvan ymmärryksen matematiikasta sekä siitä, miten sitä opitaan tehokkaasti.'
+				intro: 'Olen osallistunut matematiikan ja luonnontieteiden kilpailuihin jo ala-asteelta lähtien. Kokemusta on muun muassa:',
+				bullets: ['Päässälaskukilpailuista', 'MAOL-kilpailuista', 'Matematiikkaolympialaisten valmennuksesta', 'Matematiikkaleireistä', 'IMC:stä (International Mathematics Competition)'],
+				outro: 'Olen saavuttanut kilpailuissa useita hyviä sijoituksia, kunniamainintoja ja mitaleja. Tämä tausta on antanut minulle vahvan ymmärryksen matematiikasta sekä siitä, miten sitä opitaan tehokkaasti.'
 			},
 			footer: 'Jos haluat selkeyttä matematiikkaan, varmuutta kokeisiin tai nostaa arvosanojasi, autan sinua mielelläni. Tehdään yhdessä tavoitteistasi totta.',
 			badges: {
@@ -224,45 +247,36 @@ export const translations: Record<string, any> = {
 			desc: 'Strukturoidut opetussuunnitelmat aitoa ymmärrystä varten.',
 			weeks: 'viikkoa',
 			studentsLabel: 'opiskelijaa',
-			c1: { title: 'Algebran perusteet', level: 'Aloittelija', desc: 'Rakenna vahva algebran perusta. Käsitellään muuttujat, yhtälöt, epäyhtälöt, funktiot ja kuvaajat.', topics: ['Lineaariset yhtälöt', 'Polynomit', 'Tekijöihinjako', 'Funktiot ja kuvaajat'] },
-			c2: { title: 'Kalkyylin hallinta', level: 'Edistynyt', desc: 'Voita kalkyyli syvällisellä käsitteellisellä ymmärryksellä. Rajat, derivaatat, integraalit ja reaalimaailman sovellukset.', topics: ['Rajat ja jatkuvuus', 'Derivaatat', 'Integrointi', 'Sovellukset'] },
-			c3: { title: 'Geometria ja todistukset', level: 'Keskitaso', desc: 'Kehitä avaruudellista hahmotuskykyä ja todistustaitoja. Euklidisesta koordinaattigeometriaan.', topics: ['Kolmiot ja ympyrät', 'Koordinaattigeometria', 'Trigonometria', 'Todistukset'] },
-			c4: { title: 'Tilastotiede ja todennäköisyys', level: 'Keskitaso', desc: 'Ymmärrä dataa, sattumaa ja päättelyä. Välttämätön tieteelle, taloustieteelle ja arkipäivän päätöksille.', topics: ['Kuvaileva tilastotiede', 'Todennäköisyys', 'Jakaumat', 'Hypoteesitestaus'] },
-			c5: { title: 'SAT / ACT -matematiikan valmistautuminen', level: 'Koevalmistautuminen', desc: 'Kohdennettu valmistautuminen standardoituihin testeihin. Opi aikaa säästäviä techniikoita.', topics: ['Algebran ydin', 'Ongelmanratkaisu', 'Data-analyysi', 'Edistynyt matematiikka'] },
-			c6: { title: 'Lineaarialgebra', level: 'Edistynyt', desc: 'Hallitse vektorit, matriisit, lineaariset muunnokset ja ominaisarvot geometrisella intuitiolla.', topics: ['Vektorit ja avaruudet', 'Matriisioperaatiot', 'Ominaisarvot', 'Sovellukset'] }
+			c1: { title: 'Matematiikkavalmennus kauppiksen ja tekniikan pääsykokeisiin', level: 'Pääsykokeet', desc: 'Paranna mahdollisuuksiasi päästä kauppakorkeaan tai tekniikan alalle. Yksilöllistä opetusta, joka räätälöidään hakukohteen mukaan.', topics: ['Pääsykoematematiikka', 'Koestrategiat', 'Ajankäyttö', 'Harjoituskokeet'], price: '1990€ (sis. 24h opetus)' },
+			c2: { title: 'Matematiikan tutorointi (peruskoulusta korkeakoulutasolle)', level: 'Kaikki tasot', desc: 'Yksilöllistä tukea peruskoulusta korkeakouluun. Keskitymme ymmärryksen rakentamiseen, loogiseen ajatteluun ja arvosanojen parantamiseen.', topics: ['Ymmärryksen rakentaminen', 'Läksyapu', 'Arvosanojen nostaminen', 'Looginen ajattelu'], price: 'alkaen 50€/h' },
+			c3: { title: 'Matematiikkavalmennus ylioppilaskokeeseen', level: 'Lukio', desc: 'Valmistaudu yo-kokeeseen (lyhyt ja pitkä) tehokkaasti. Keskitymme keskeisiin taitoihin ja pisteitä maksimoivaan vastaustekniikkaan.', topics: ['Lyhyt ja pitkä matikka', 'Vastaustekniikka', 'Ajankäyttö', 'Yo-kokeen vaatimukset'], price: 'alkaen 1490€ (sis. 20h opetus)' },
+			c4: { title: 'Matematiikkavalmennus kansainvälisiin kokeisiin (SAT ym.)', level: 'Koevalmennus', desc: 'Saavuta korkea pistemäärä ja erotu hakuprosessissa. Valmennuksessa painotetaan nopeutta, tarkkuutta ja tehtävätyyppien tunnistamista.', topics: ['Nopeus ja tarkkuus', 'Koestrategiat', 'Tehtävätyypit', 'Koesimulaatiot'], price: 'alkaen 1490€ (sis. 20h opetus)' }
 		},
 		experience: {
-			title: 'Työkokemus',
-			brief: 'Aiemmat tehtäväni',
-			subtitle: 'Aikajana kasvustani kasvattajana ja matemaatikkona',
-			types: { fullTime: 'Kokopäiväinen', partTime: 'Osapäiväinen', contract: 'Määräaikainen', freelance: 'Freelance' },
+			title: 'Saavutukset ja Kokemus',
+			brief: 'Taustani',
+			subtitle: 'Aikajana matkastani matematiikassa ja opetuksessa',
+			types: { competition: 'Kilpailu', academic: 'Akateeminen', professional: 'Ammatillinen' },
 			e1: {
-				role: 'Päämatematiikan tuutori',
-				institution: 'Mathera Tutoring Practice',
-				period: 'Tammikuu 2022 – nyt',
-				desc: 'Ylläpitään itsenäistä tuutorikeskusta, joka palvelee lukio- ja yliopisto-opiskelijoita. Kehittynyt räätälöityjä opetussuunnitelmia yli 50 opiskelijalle, saavuttaen 98 %:n läpäisyprosentin. Erikoistunut kalkyyliin, algebraan ja ylioppilaskirjoitusten matematiikkaan.',
-				highlights: ['Yli 200 opetustuokiota', '98 % läpäisyprosentti', 'Opetussuunnitelman kehittäminen', 'Kilpailuvalmistautuminen']
+				role: 'Kunniamaininta',
+				institution: 'International Mathematics Competition for University Students (IMC)',
+				period: 'Viimeaikainen',
+				desc: 'Edustin Aalto-yliopistoa kansainvälisessä yliopisto-opiskelijoiden matematiikkakilpailussa (IMC) ja saavutin kunniamaininnan. Laaja taustani MAOL-kilpailuista ja matematiikkaolympialaisista antaa minulle ainutlaatuisen kyvyn opettaa vaativaa ongelmanratkaisua.',
+				highlights: ['Kunniamaininta IMC', 'MAOL-kilpailut', 'Matematiikkaolympialaiset', 'Päässälasku']
 			},
 			e2: {
-				role: 'Matematiikan opetusassistentti',
+				role: 'Teknillisen fysiikan ja matematiikan opiskelija',
 				institution: 'Aalto-yliopisto',
-				period: 'Elokuu 2020 – joulukuu 2021',
-				desc: 'Avustin professoreita Kalkyyli I & II:n ja lineaarialgebran opetuksessa perustutkinto-opiskelijoille. Vetänyt viikoittaisia harjoitustunteja, arvioinut tehtäviä ja tarjonnut henkilökohtaista tukea.',
-				highlights: ['Kalkyyli I & II', 'Lineaarialgebra', 'Yli 120 avustettua opiskelijaa', 'Harjoitustuntien ohjaus']
+				period: 'Elokuu 2020 – nyt',
+				desc: 'Opiskelen teknillistä fysiikkaa ja matematiikkaa. Työskentelen tekoälyn parissa ja olen toiminut yliopistolla opetusassistenttina, ohjaten opiskelijoita vaativilla yliopistotason kalkyylin ja lineaarialgebran kursseilla.',
+				highlights: ['Teknillinen fysiikka', 'Matematiikka', 'Opetusassistentti', 'Tekoäly']
 			},
 			e3: {
-				role: 'Matematiikkaolympialaisten valmentaja',
-				institution: 'Sunrise High School',
-				period: 'Maaliskuu 2019 – heinäkuu 2020',
-				desc: 'Valmensin koulun matematiikkaolympialaisten joukkuetta. Suunnittelin haastavia tehtäväkokonaisuuksia, ohjasin viikoittaisia harjoitusistuntoja ja mentoroin opiskelijoita alueellisiin ja kansallisiin kilpailuihin. Joukkue sijoittui toiseksi kansallisessa kilpailussa.',
-				highlights: ['Olympialaisten valmistautuminen', 'Tehtäväkokonaisuuksien suunnittelu', '2. sija kansallisesti', 'Joukkuementorointi']
-			},
-			e4: {
-				role: 'Verkko-matematiikan tuutori',
-				institution: 'Tekoälykehitys / Freelance',
-				period: 'Tammikuu 2018 – helmikuu 2019',
-				desc: 'Tarjosin verkossa matematiikan tutoroinninia opiskelijoille eri maissa ja opetussuunnitelmissa (IB, Cambridge A-Level, US AP Math). Mukautin opetusmenetelmät asynkroniseen ja synkroniseen verkko-oppimiseen.',
-				highlights: ['IB-matematiikka', 'Cambridge A-Level', 'AP-kalkyyli', 'Verkko-opetus']
+				role: 'Itsenäinen Matematiikan Tuutori',
+				institution: 'Mathera',
+				period: 'Yli 10 vuotta',
+				desc: 'Yli 10 vuoden kokemus matematiikan yksityisopetuksesta. Olen auttanut yli 50 opiskelijaa saavuttamaan omat tavoitteensa – oli kyse sitten arvosanojen nostamisesta, pääsykokeista, ylioppilaskirjoituksista tai perusteiden vahvistamisesta.',
+				highlights: ['10+ vuoden kokemus', '50+ opiskelijaa', 'Räätälöity opetus', 'Pääsykokeet']
 			}
 		},
 		registration: {
@@ -290,7 +304,8 @@ export const translations: Record<string, any> = {
 				required: 'Pakolliset kentät',
 				submit: 'Lähetä',
 				errorRequired: 'Täytä kaikki pakolliset kentät.',
-				successMessage: '🎉 Ilmoittautuminen vastaanotettu! Mathera ottaa yhteyttä 24 tunnin kuluessa.'
+				successMessage: '🎉 Ilmoittautuminen vastaanotettu! Mathera ottaa yhteyttä 24 tunnin kuluessa.',
+				whatsappNotice: 'Huomaa: Kaikki yhteydenpito ja aikataulutus hoidetaan turvallisesti yrityksen WhatsApp-tilin kautta.'
 			}
 		},
 		stats: {
@@ -312,7 +327,7 @@ export const translations: Record<string, any> = {
 				'∞ Ääretön on olemassa useammassa muodossa kuin yhden.',
 				'√ Neliöjuurimärkkiä kutsutaan "radikaaliksi".'
 			],
-			tagline: '∑ Hallitse matematiikka Matheran kanssa'
+			motto: '∑ Hallitse matematiikka Matheran kanssa'
 		},
 		seo: {
 			title: 'Mathera - Asiantuntevaa Matematiikan Opetusta',

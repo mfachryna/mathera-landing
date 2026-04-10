@@ -1,26 +1,12 @@
-<script>
+<script lang="ts">
 	import AnimateOnScroll from '$lib/components/animate-on-scroll.svelte';
 	import PageTitle from '../page-title.svelte';
 	import Icon from '@iconify/svelte';
 	import { t } from '$lib/i18n.svelte';
 
-	let aboutCards = $derived([
-		{
-			title: t('about.general.title'),
-			icon: 'lucide:user',
-			description: t('about.general.desc')
-		},
-		{
-			title: t('about.education.title'),
-			icon: 'lucide:graduation-cap',
-			description: t('about.education.desc')
-		},
-		{
-			title: t('about.experience.title'),
-			icon: 'lucide:trophy',
-			description: t('about.experience.desc')
-		}
-	]);
+	let generalParagraphs = $derived(t('about.general.paragraphs') as string[] || []);
+	let educationParagraphs = $derived(t('about.education.paragraphs') as string[] || []);
+	let experienceBullets = $derived(t('about.experience.bullets') as string[] || []);
 
 	let badges = $derived([
 		{ icon: 'lucide:ruler', label: t('about.badges.structured') || 'Structured Teaching' },
@@ -35,61 +21,126 @@
 	<div class="container-modern relative z-10">
 		<PageTitle title={t('about.title')} brief={t('about.brief')} />
 
-		<div class="relative grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
-			{#each aboutCards as card, i (card.title)}
-				<AnimateOnScroll
-					animation="bounce"
-					delay={i * 150}
-					threshold={0.1}
-					className="w-full"
-				>
-					<article
-						class="group card-modern hover-lift bg-background/60 relative h-full overflow-hidden !p-0 backdrop-blur-md"
-						aria-labelledby={`about-card-${i}`}
-					>
-						<div
-							class="absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-							style="background: linear-gradient(135deg, oklch(from var(--primary) l c h / 0.05), oklch(from var(--accent) l c h / 0.05));"
-						></div>
+		<AnimateOnScroll animation="fade" delay={100} threshold={0.1}>
+			<article class="card-modern !p-0 overflow-hidden bg-background/60 backdrop-blur-md">
 
+				<!-- ═══ Section 1: General — Pic #1 + Greeting ═══ -->
+				<div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-0">
+					<!-- Pic #1 -->
+					<div class="relative h-64 md:h-auto overflow-hidden bg-muted/20">
+						<img
+							src="/images/avatar/avatar.jpeg"
+							alt="Aman"
+							class="absolute inset-0 w-full h-full object-cover object-top"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/10"></div>
+					</div>
 
-						<div class="relative z-10 flex h-full flex-col p-8">
-							<div class="mb-5">
-								<div
-									class="inline-flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
-									style="background: var(--gradient-primary); color: var(--primary-foreground);"
-								>
-									<Icon icon={card.icon} class="h-6 w-6" />
-								</div>
-							</div>
-
-							<h3
-								id={`about-card-${i}`}
-								class="group-hover:text-primary mb-4 text-lg font-bold transition-colors duration-300"
-							>
-								{card.title}
-							</h3>
-
-							<p class="text-muted-foreground group-hover:text-foreground flex-1 text-sm leading-relaxed transition-colors duration-300">
-								{card.description}
-							</p>
-
+					<!-- Text -->
+					<div class="p-8 md:p-10 flex flex-col justify-center">
+						<div class="flex items-center gap-3 mb-5">
 							<div
-								class="mt-6 h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-16"
-								style="background: var(--gradient-primary);"
-							></div>
+								class="inline-flex h-10 w-10 items-center justify-center rounded-xl shadow-lg shadow-primary/20"
+								style="background: var(--gradient-primary); color: var(--primary-foreground);"
+							>
+								<Icon icon="lucide:user" class="h-5 w-5" />
+							</div>
+							<h3 class="text-lg font-bold">{t('about.general.title')}</h3>
 						</div>
-					</article>
-				</AnimateOnScroll>
-			{/each}
-		</div>
 
-		<div class="mt-20 text-center">
-			<AnimateOnScroll animation="fade" delay={500}>
-				<div class="mx-auto max-w-3xl">
-					<p class="text-muted-foreground mb-8 text-base leading-relaxed lg:text-lg">
+						<p class="gradient-text text-2xl md:text-3xl font-bold mb-4 leading-tight">
+							{t('about.general.greeting')}
+						</p>
+
+						<div class="space-y-4">
+							{#each generalParagraphs as para}
+								<p class="text-muted-foreground text-sm md:text-base leading-relaxed">{para}</p>
+							{/each}
+						</div>
+					</div>
+				</div>
+
+				<!-- Divider -->
+				<div class="mx-8 md:mx-10">
+					<div class="h-px w-full" style="background: oklch(from var(--primary) l c h / 0.12);"></div>
+				</div>
+
+				<!-- ═══ Section 2: Education — Text + Pic #2 ═══ -->
+				<div class="p-8 md:p-10">
+					<div class="flex items-center gap-3 mb-6">
+						<div
+							class="inline-flex h-10 w-10 items-center justify-center rounded-xl shadow-lg shadow-primary/20"
+							style="background: var(--gradient-primary); color: var(--primary-foreground);"
+						>
+							<Icon icon="lucide:graduation-cap" class="h-5 w-5" />
+						</div>
+						<h3 class="text-lg font-bold">{t('about.education.title')}</h3>
+					</div>
+
+					<div class="grid grid-cols-1 md:grid-cols-[1fr_260px] gap-8 items-start">
+						<div class="space-y-4">
+							{#each educationParagraphs as para}
+								<p class="text-muted-foreground text-sm md:text-base leading-relaxed">{para}</p>
+							{/each}
+						</div>
+
+						<!-- Pic #2 -->
+						<div class="relative h-72 md:h-full min-h-[260px] overflow-hidden rounded-2xl bg-muted/20 shadow-sm">
+							<img
+								src="/images/aman_graduation.jpeg"
+								alt="Aalto University"
+								class="absolute inset-0 w-full h-full object-cover object-[center_25%] transition-transform duration-700 hover:scale-105"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<!-- Divider -->
+				<div class="mx-8 md:mx-10">
+					<div class="h-px w-full" style="background: oklch(from var(--primary) l c h / 0.12);"></div>
+				</div>
+
+				<!-- ═══ Section 3: Competition Experience ═══ -->
+				<div class="p-8 md:p-10">
+					<div class="flex items-center gap-3 mb-6">
+						<div
+							class="inline-flex h-10 w-10 items-center justify-center rounded-xl shadow-lg shadow-primary/20"
+							style="background: var(--gradient-primary); color: var(--primary-foreground);"
+						>
+							<Icon icon="lucide:trophy" class="h-5 w-5" />
+						</div>
+						<h3 class="text-lg font-bold">{t('about.experience.title')}</h3>
+					</div>
+
+					<p class="text-muted-foreground text-sm md:text-base leading-relaxed mb-4">
+						{t('about.experience.intro')}
+					</p>
+
+					<ul class="space-y-2 mb-5 pl-1">
+						{#each experienceBullets as bullet}
+							<li class="flex items-start gap-3 text-sm md:text-base">
+								<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full" style="background: var(--gradient-primary);"></span>
+								<span class="text-muted-foreground">{bullet}</span>
+							</li>
+						{/each}
+					</ul>
+
+					<p class="text-muted-foreground text-sm md:text-base leading-relaxed">
+						{t('about.experience.outro')}
+					</p>
+				</div>
+
+				<!-- Divider -->
+				<div class="mx-8 md:mx-10">
+					<div class="h-px w-full" style="background: oklch(from var(--primary) l c h / 0.12);"></div>
+				</div>
+
+				<!-- ═══ Footer CTA ═══ -->
+				<div class="p-8 md:p-10 text-center">
+					<p class="text-foreground text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto mb-6">
 						{t('about.footer')}
 					</p>
+
 					<div class="flex flex-wrap justify-center gap-3">
 						{#each badges as badge}
 							<div class="badge-modern">
@@ -99,7 +150,8 @@
 						{/each}
 					</div>
 				</div>
-			</AnimateOnScroll>
-		</div>
+
+			</article>
+		</AnimateOnScroll>
 	</div>
 </section>

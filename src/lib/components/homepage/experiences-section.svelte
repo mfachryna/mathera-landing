@@ -11,8 +11,8 @@
 			role: t('experience.e1.role'),
 			institution: t('experience.e1.institution'),
 			period: t('experience.e1.period'),
-			type: t('experience.types.fullTime'),
-			typeKey: 'Full-time',
+			type: t('experience.types.competition'),
+			typeKey: 'Competition',
 			description: t('experience.e1.desc'),
 			highlights: t('experience.e1.highlights') as string[]
 		},
@@ -21,8 +21,8 @@
 			role: t('experience.e2.role'),
 			institution: t('experience.e2.institution'),
 			period: t('experience.e2.period'),
-			type: t('experience.types.partTime'),
-			typeKey: 'Part-time',
+			type: t('experience.types.academic'),
+			typeKey: 'Academic',
 			description: t('experience.e2.desc'),
 			highlights: t('experience.e2.highlights') as string[]
 		},
@@ -31,20 +31,10 @@
 			role: t('experience.e3.role'),
 			institution: t('experience.e3.institution'),
 			period: t('experience.e3.period'),
-			type: t('experience.types.contract'),
-			typeKey: 'Contract',
+			type: t('experience.types.professional'),
+			typeKey: 'Professional',
 			description: t('experience.e3.desc'),
 			highlights: t('experience.e3.highlights') as string[]
-		},
-		{
-			id: 4,
-			role: t('experience.e4.role'),
-			institution: t('experience.e4.institution'),
-			period: t('experience.e4.period'),
-			type: t('experience.types.freelance'),
-			typeKey: 'Freelance',
-			description: t('experience.e4.desc'),
-			highlights: t('experience.e4.highlights') as string[]
 		}
 	]);
 
@@ -55,10 +45,9 @@
 	}
 
 	const typeColors: Record<string, string> = {
-		'Full-time': 'var(--purple)',
-		'Part-time': 'var(--success)',
-		'Contract': 'var(--warning)',
-		'Freelance': 'var(--muted-foreground)'
+		'Competition': 'var(--warning)',
+		'Academic': 'var(--purple)',
+		'Professional': 'var(--success)'
 	};
 </script>
 
