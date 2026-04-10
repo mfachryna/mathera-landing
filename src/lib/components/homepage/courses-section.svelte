@@ -2,69 +2,70 @@
 	import AnimateOnScroll from '$lib/components/animate-on-scroll.svelte';
 	import PageTitle from '../page-title.svelte';
 	import Icon from '@iconify/svelte';
+	import { t } from '$lib/i18n.svelte';
 
-	const courses = [
+	let courses = $derived([
 		{
 			icon: 'lucide:function-square',
-			title: 'Foundation Algebra',
-			level: 'Beginner',
+			title: t('courses.c1.title') || 'Foundation Algebra',
+			level: t('courses.c1.level') || 'Beginner',
 			levelColor: 'var(--success)',
-			duration: '8 weeks',
+			duration: '8 ' + (t('courses.weeks') || 'weeks'),
 			students: '45+',
-			description: 'Build a rock-solid algebra foundation. Covers variables, equations, inequalities, functions, and graphing, the essential language of mathematics.',
-			topics: ['Linear Equations', 'Polynomials', 'Factoring', 'Functions & Graphs']
+			description: t('courses.c1.desc') || 'Build a rock-solid algebra foundation.',
+			topics: t('courses.c1.topics') || ['Linear Equations', 'Polynomials', 'Factoring', 'Functions & Graphs']
 		},
 		{
 			icon: 'lucide:trending-up',
-			title: 'Calculus Mastery',
-			level: 'Advanced',
+			title: t('courses.c2.title') || 'Calculus Mastery',
+			level: t('courses.c2.level') || 'Advanced',
 			levelColor: 'var(--purple)',
-			duration: '12 weeks',
+			duration: '12 ' + (t('courses.weeks') || 'weeks'),
 			students: '30+',
-			description: 'Conquer calculus with deep conceptual understanding. Limits, derivatives, integrals, and their real-world applications, explained clearly and methodically.',
-			topics: ['Limits & Continuity', 'Derivatives', 'Integration', 'Applications']
+			description: t('courses.c2.desc') || 'Conquer calculus with deep conceptual understanding.',
+			topics: t('courses.c2.topics') || ['Limits & Continuity', 'Derivatives', 'Integration', 'Applications']
 		},
 		{
 			icon: 'lucide:shapes',
-			title: 'Geometry & Proofs',
-			level: 'Intermediate',
+			title: t('courses.c3.title') || 'Geometry & Proofs',
+			level: t('courses.c3.level') || 'Intermediate',
 			levelColor: 'var(--warning)',
-			duration: '10 weeks',
+			duration: '10 ' + (t('courses.weeks') || 'weeks'),
 			students: '28+',
-			description: 'Develop spatial reasoning and rigorous proof-writing skills. From Euclidean geometry to coordinate geometry and trigonometric applications.',
-			topics: ['Triangles & Circles', 'Coordinate Geometry', 'Trigonometry', 'Proofs']
+			description: t('courses.c3.desc') || 'Develop spatial reasoning and rigorous proof-writing skills.',
+			topics: t('courses.c3.topics') || ['Triangles & Circles', 'Coordinate Geometry', 'Trigonometry', 'Proofs']
 		},
 		{
 			icon: 'lucide:bar-chart-3',
-			title: 'Statistics & Probability',
-			level: 'Intermediate',
+			title: t('courses.c4.title') || 'Statistics & Probability',
+			level: t('courses.c4.level') || 'Intermediate',
 			levelColor: 'var(--purple-light)',
-			duration: '8 weeks',
+			duration: '8 ' + (t('courses.weeks') || 'weeks'),
 			students: '35+',
-			description: 'Understand data, chance, and inference. Essential for science, economics, and everyday decision-making. Covers both conceptual and computational aspects.',
-			topics: ['Descriptive Stats', 'Probability', 'Distributions', 'Hypothesis Testing']
+			description: t('courses.c4.desc') || 'Understand data, chance, and inference.',
+			topics: t('courses.c4.topics') || ['Descriptive Stats', 'Probability', 'Distributions', 'Hypothesis Testing']
 		},
 		{
 			icon: 'lucide:graduation-cap',
-			title: 'SAT / ACT Math Prep',
-			level: 'Exam Prep',
+			title: t('courses.c5.title') || 'SAT / ACT Math Prep',
+			level: t('courses.c5.level') || 'Exam Prep',
 			levelColor: 'var(--accent)',
-			duration: '6 weeks',
+			duration: '6 ' + (t('courses.weeks') || 'weeks'),
 			students: '60+',
-			description: 'Targeted preparation for standardized tests. Learn time-saving strategies, common traps to avoid, and systematic approaches to every question type.',
-			topics: ['Heart of Algebra', 'Problem Solving', 'Data Analysis', 'Advanced Math']
+			description: t('courses.c5.desc') || 'Targeted preparation for standardized tests.',
+			topics: t('courses.c5.topics') || ['Heart of Algebra', 'Problem Solving', 'Data Analysis', 'Advanced Math']
 		},
 		{
 			icon: 'lucide:table-properties',
-			title: 'Linear Algebra',
-			level: 'Advanced',
+			title: t('courses.c6.title') || 'Linear Algebra',
+			level: t('courses.c6.level') || 'Advanced',
 			levelColor: 'var(--purple)',
-			duration: '10 weeks',
+			duration: '10 ' + (t('courses.weeks') || 'weeks'),
 			students: '18+',
-			description: 'Essential for computer science, engineering, and data science. Master vectors, matrices, linear transformations, and eigenvalues with geometric intuition.',
-			topics: ['Vectors & Spaces', 'Matrix Operations', 'Eigenvalues', 'Applications']
+			description: t('courses.c6.desc') || 'Master vectors, matrices, and eigenvalues.',
+			topics: t('courses.c6.topics') || ['Vectors & Spaces', 'Matrix Operations', 'Eigenvalues', 'Applications']
 		}
-	];
+	]);
 
 	function smoothScrollTo(id: string) {
 		const el = document.getElementById(id);
@@ -78,9 +79,9 @@
 <section class="section-padding relative overflow-hidden" id="courses" aria-labelledby="courses-title">
 	<div class="container-modern relative z-10">
 		<PageTitle
-			title="Courses Offered"
-			brief="What you'll learn"
-			description="Structured curricula designed for real understanding, not just passing exams"
+			title={t('courses.title')}
+			brief={t('courses.brief')}
+			description={t('courses.desc')}
 		/>
 
 		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -119,7 +120,7 @@
 						</div>
 
 						<div class="border-border/50 border-t px-6 py-4">
-							<p class="text-muted-foreground mb-2.5 text-xs font-semibold uppercase tracking-wider">Topics Covered</p>
+							<p class="text-muted-foreground mb-2.5 text-xs font-semibold uppercase tracking-wider">{t('footer.topicsCovered') || 'Topics Covered'}</p>
 							<div class="flex flex-wrap gap-2">
 								{#each course.topics as topic}
 									<span
@@ -144,14 +145,14 @@
 									<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
 									</svg>
-									{course.students} students
+									{course.students} {t('courses.studentsLabel') || 'students'}
 								</span>
 							</div>
 							<button
 								class="btn-outline w-full text-sm"
 								onclick={() => smoothScrollTo('register')}
 							>
-								Enroll Now →
+								{t('footer.enrollNow') || 'Enroll Now'} →
 							</button>
 						</div>
 					</article>

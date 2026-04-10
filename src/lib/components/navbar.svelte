@@ -1,18 +1,18 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
+	import { i18n, toggleLocale, t } from '$lib/i18n.svelte';
+	import LanguagePicker from './language-picker.svelte';
 
 	let { isSidebarOpen, toggleSidebar } = $props();
 
 	let isScrolled = $state(false);
 
-	const navLinks = [
-		{ name: 'About', href: '/#about' },
-		{ name: 'Skills', href: '/#skills' },
-		{ name: 'Courses', href: '/#courses' },
-		{ name: 'Experience', href: '/#experiences' },
-		{ name: 'Register', href: '/#register' }
-	];
+	let navLinks = $derived([
+		{ name: t('nav.about'), href: '/#about', isCTA: false },
+		{ name: t('nav.expertise'), href: '/#skills', isCTA: false },
+		{ name: t('nav.courses'), href: '/#courses', isCTA: false }
+	]);
 
 	function handleScroll() {
 		if (browser) {
@@ -89,13 +89,8 @@
 			onclick={(e) => handleNavigation(e, '/')}
 		>
 			<div class="flex items-center space-x-2">
-				{#if isScrolled}
-					<div
-						class="from-primary to-accent text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br text-sm font-bold"
-					>
-						∑
-					</div>
-				{:else}
+				<img src="/logo.png" alt="Mathera Logo" class="h-10 w-auto object-contain drop-shadow-sm" />
+				{#if !isScrolled}
 					<span class="gradient-text text-xl transition-all duration-300 font-bold">
 						Mathera
 					</span>
@@ -103,17 +98,17 @@
 			</div>
 		</a>
 
-		<div class="hidden items-center space-x-1 md:flex" class:justify-center={isScrolled}>
+		<div class="hidden items-center space-x-0 md:flex" class:justify-center={isScrolled}>
 			{#each navLinks as link}
 				<a
 					href={link.href}
-					class="hover:bg-secondary/50 relative rounded-lg px-4 py-2 font-medium transition-all duration-300 hover:scale-105 text-muted-foreground hover:text-foreground
-						{link.name === 'Register' ? 'text-accent!' : ''}"
+					class="hover:bg-secondary/50 relative rounded-lg px-3 py-2 font-medium transition-all duration-300 hover:scale-105 text-muted-foreground hover:text-foreground
+						{link.isCTA ? 'text-accent!' : ''}"
 					onclick={(e) => handleNavigation(e, link.href)}
 				>
 					<span class="relative">
 						{link.name}
-						{#if link.name === 'Register'}
+						{#if link.isCTA}
 							<span class="from-primary to-accent absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-gradient-to-r"></span>
 						{/if}
 					</span>
@@ -135,14 +130,16 @@
 			</button>
 		</div>
 
-		<div class="hidden md:flex">
+		<div class="hidden md:flex items-center space-x-3">
+			<LanguagePicker />
+
 			<a
 				href="/#register"
 				onclick={(e) => handleNavigation(e, '/#register')}
-				class="btn-modern group relative overflow-hidden !px-5 !py-2.5 text-sm"
+				class="btn-modern group relative overflow-hidden !px-4 !py-2 text-sm"
 			>
 				<span class="relative z-10 flex items-center space-x-2">
-					<span>Start Learning</span>
+					<span>{t('hero.cta_short') || 'Enroll Now'}</span>
 					<svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
 					</svg>
@@ -164,16 +161,22 @@
 		style="background: oklch(from var(--card) l c h / 0.97);"
 	>
 		<div class="flex justify-between items-center p-6">
-			<span class="gradient-text text-xl font-bold">Mathera</span>
-			<button
-				class="hover:bg-secondary/50 rounded-full p-2 transition-colors"
-				onclick={handleNavClick}
-				aria-label="Close sidebar"
-			>
-				<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-				</svg>
-			</button>
+			<div class="flex items-center space-x-2">
+				<img src="/logo.png" alt="Mathera Logo" class="h-10 w-auto object-contain drop-shadow-sm" />
+				<span class="gradient-text text-xl font-bold">Mathera</span>
+			</div>
+			<div class="flex items-center space-x-4">
+				<LanguagePicker />
+				<button
+					class="hover:bg-secondary/50 rounded-full p-2 transition-colors"
+					onclick={handleNavClick}
+					aria-label="Close sidebar"
+				>
+					<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</div>
 		</div>
 
 		<div class="mt-4 flex flex-col space-y-2 px-6">
@@ -196,13 +199,13 @@
 					class="btn-modern block w-full text-center"
 					onclick={(e) => { handleNavigation(e, '/#register'); handleNavClick(); }}
 				>
-					Start Learning →
+					{t('hero.cta_short') || 'Enroll Now'} →
 				</a>
 			</div>
 		</div>
 
 		<div class="absolute bottom-8 left-0 right-0 px-6 text-center">
-			<p class="text-muted-foreground text-sm">∑ Master Mathematics with Mathera</p>
+			<p class="text-muted-foreground text-sm">{t('footer.tagline')}</p>
 		</div>
 	</div>
 </div>

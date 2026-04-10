@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import AnimateOnScroll from './animate-on-scroll.svelte';
+	import { t } from '$lib/i18n.svelte';
 
 	const currentYear = new Date().getFullYear();
 
@@ -10,12 +11,12 @@
 		{ name: 'YouTube', icon: 'simple-icons:youtube', href: 'https://youtube.com', color: 'text-red-500' },
 	];
 
-	const mathFacts = [
+	let mathFacts = $derived(t('footer.mathFacts') as string[] || [
 		'∑ The word "mathematics" comes from the Greek "máthēma" meaning learning.',
 		'π Pi contains every possible sequence of numbers.',
 		'∞ There are more types of infinity than one.',
-		'√ The square root symbol is called a "radical".',
-	];
+		'√ The square root symbol is called a "radical".'
+	]);
 
 	let factIndex = $state(0);
 
@@ -34,11 +35,14 @@
 		<div class="space-y-8 text-center">
 			<AnimateOnScroll animation="fade" delay={100} threshold={0.1} className="w-full" rootMargin="0px 0px 0px 0px">
 				<div>
+					<div class="mb-3 flex justify-center">
+						<img src="/logo.png" alt="Mathera" class="h-12 w-auto object-contain" />
+					</div>
 					<div class="gradient-text mb-2 text-3xl font-bold">
 						Mathera
 					</div>
 					<p class="text-muted-foreground text-sm">
-						∑ Making mathematics meaningful, one student at a time
+						{t('footer.tagline')}
 					</p>
 				</div>
 			</AnimateOnScroll>
@@ -76,9 +80,9 @@
 
 			<AnimateOnScroll animation="slide" delay={400} threshold={0.1} className="w-full" rootMargin="0px 0px 0px 0px">
 				<div class="text-muted-foreground flex flex-wrap items-center justify-center gap-1.5 text-sm">
-					<span>Built with</span>
+					<span>{t('footer.builtWith')}</span>
 					<span style="color: var(--accent);">♥</span>
-					<span>for math learners everywhere</span>
+					<span>{t('footer.forLearners')}</span>
 					<span>•</span>
 					<span>© {currentYear} Mathera</span>
 				</div>
@@ -91,7 +95,7 @@
 					aria-label="Back to top"
 				>
 					<Icon icon="ph:arrow-up" class="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
-					<span>Back to top</span>
+					<span>{t('footer.backToTop')}</span>
 				</button>
 			</AnimateOnScroll>
 		</div>

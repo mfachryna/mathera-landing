@@ -1,50 +1,70 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, tick, untrack } from 'svelte';
 	import { browser } from '$app/environment';
-	import { tick } from 'svelte';
+	import { t, i18n } from '$lib/i18n.svelte';
 
-	const texts = [
-		'Mathematical Mastery',
-		'Algebraic Excellence',
-		'Calculus Fluency',
-		'Geometric Intuition',
-		'Statistical Confidence',
-		'Acing Your Exams',
-		'True Understanding'
-	];
+	let words: string[] = $state([]);
+	let currentText = $state('');
+	let sentenceIndex = $state(0);
+	let charIndex = $state(0);
+	let isDeleting = $state(false);
+	let cursorVisible = $state(true);
+	let isComponentMounted = $state(false);
+	let generation = 0; // plain let — NOT $state, avoids read-write loop in $effect
 
-	let currentText = '';
-	let sentenceIndex = 0;
-	let charIndex = 0;
-	let isDeleting = false;
-	let cursorVisible = true;
-	let isComponentMounted = false;
-	let animationsStarted = false;
+	$effect(() => {
+		// Declare reactive dependency on locale explicitly
+		const locale = i18n.locale;
+		const w = t('hero.words') as string[];
 
-	function typeWriter() {
-		if (!isComponentMounted || !animationsStarted) return;
-		const sentence = texts[sentenceIndex];
-		if (!isDeleting) {
-			if (charIndex < sentence.length) {
-				currentText += sentence[charIndex++];
-				setTimeout(typeWriter, 55);
-			} else {
-				setTimeout(() => { isDeleting = true; typeWriter(); }, 1800);
+		// Use untrack so writing $state here doesn't re-trigger this effect
+		untrack(() => {
+			words = Array.isArray(w) ? w : [
+				'Mathematical Mastery',
+				'Algebraic Excellence',
+				'Calculus Fluency',
+				'True Understanding'
+			];
+			currentText = '';
+			sentenceIndex = 0;
+			charIndex = 0;
+			isDeleting = false;
+			generation++;
+			if (isComponentMounted) {
+				startTypewriter();
 			}
-		} else {
-			if (charIndex > 0) {
-				currentText = sentence.substring(0, --charIndex);
-				setTimeout(typeWriter, 40);
+		});
+	});
+
+	function startTypewriter() {
+		const gen = generation;
+		function step() {
+			if (!isComponentMounted || generation !== gen) return;
+			const sentence = words[sentenceIndex];
+			if (!sentence) return;
+			if (!isDeleting) {
+				if (charIndex < sentence.length) {
+					currentText = sentence.substring(0, ++charIndex);
+					setTimeout(step, 55);
+				} else {
+					setTimeout(() => { if (generation === gen) { isDeleting = true; step(); } }, 1800);
+				}
 			} else {
-				isDeleting = false;
-				sentenceIndex = (sentenceIndex + 1) % texts.length;
-				setTimeout(typeWriter, 60);
+				if (charIndex > 0) {
+					currentText = sentence.substring(0, --charIndex);
+					setTimeout(step, 40);
+				} else {
+					isDeleting = false;
+					sentenceIndex = (sentenceIndex + 1) % words.length;
+					setTimeout(step, 60);
+				}
 			}
 		}
+		step();
 	}
 
 	function blinkCursor() {
-		if (!isComponentMounted || !animationsStarted) return;
+		if (!isComponentMounted) return;
 		cursorVisible = !cursorVisible;
 		setTimeout(blinkCursor, 530);
 	}
@@ -63,26 +83,22 @@
 		isComponentMounted = true;
 		tick().then(() => {
 			setTimeout(() => {
-				animationsStarted = true;
-				typeWriter();
+				startTypewriter();
 				blinkCursor();
 			}, 200);
 		});
 		return () => { isComponentMounted = false; };
 	});
 
-	const stats = [
-		{ value: '200+', label: 'Students Taught' },
-		{ value: '5+', label: 'Years Experience' },
-		{ value: '98%', label: 'Pass Rate' },
-		{ value: '6', label: 'Subjects Covered' }
-	];
+	let stats = $derived([
+		{ value: '200+', label: t('stats.students') || 'Students Taught' },
+		{ value: '10+', label: t('stats.experience') || 'Years Experience' },
+		{ value: '98%', label: t('stats.passRate') || 'Pass Rate' },
+		{ value: '6', label: t('stats.subjects') || 'Subjects Covered' }
+	]);
 </script>
 
-<svelte:head>
-	<title>Mathera - Your Personal Math Tutor</title>
-	<meta name="description" content="Expert mathematics tutoring by Mathera. From algebra to calculus, personalized lessons for every level." />
-</svelte:head>
+
 
 <section
 	class="relative flex min-h-screen w-full flex-col overflow-hidden"
@@ -97,17 +113,17 @@
 				style="border-color: oklch(from var(--primary) l c h / 0.25); background: oklch(from var(--primary) l c h / 0.07);"
 			>
 				<span class="h-2 w-2 animate-pulse rounded-full" style="background: var(--accent);"></span>
-				<span class="text-sm font-medium" style="color: var(--accent);">Now Accepting Students</span>
+				<span class="text-sm font-medium" style="color: var(--accent);">{t('hero.accepting')}</span>
 			</div>
 
 			<!-- Tightly grouped title elements -->
 			<div class="flex flex-col items-center justify-center space-y-2">
 				<div>
 					<span class="text-muted-foreground text-sm font-medium uppercase tracking-widest">
-						Welcome to Mathera
+						{t('hero.welcome')}
 					</span>
 					<h1 class="mt-2 leading-tight text-responsive-xl font-bold">
-						<span class="text-foreground">Your Path to</span><br />
+						<span class="text-foreground">{t('hero.title') || 'Your Path to'}</span><br />
 						<span class="gradient-text relative block h-[2.8em] md:h-[1.5em] w-full">
 							{currentText}
 							<span
@@ -126,23 +142,21 @@
 				</div>
 			</div>
 
-			<p class="text-muted-foreground mx-auto max-w-2xl text-base leading-relaxed sm:text-lg pt-4">
-				Hi, I'm <strong class="text-foreground">Mathera</strong>, a passionate mathematics educator
-				dedicated to making complex concepts click. From foundational algebra to advanced calculus,
-				I craft personalized learning journeys that build real understanding, not just exam scores.
+			<p class="text-muted-foreground mx-auto max-w-2xl text-base leading-relaxed sm:text-lg pt-4" style="min-height: 5em;">
+				{t('hero.subtitle')}
 			</p>
 
 			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
 				<button class="btn-modern group" onclick={() => smoothScrollTo('courses')}>
 					<span class="flex items-center gap-2">
-						<span>Explore Courses</span>
+						<span>{t('nav.courses') || 'Explore Courses'}</span>
 						<svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
 						</svg>
 					</span>
 				</button>
 				<button class="btn-outline" onclick={() => smoothScrollTo('register')}>
-					Register Now
+					{t('nav.contact') || 'Register Now'}
 				</button>
 			</div>
 		</div>
@@ -172,7 +186,7 @@
 			class="text-muted-foreground hover:text-foreground flex flex-col items-center gap-2 transition-colors duration-300"
 			aria-label="Scroll to about section"
 		>
-			<span class="text-xs uppercase tracking-widest">Scroll</span>
+			<span class="text-xs uppercase tracking-widest">{t('hero.scroll') || 'Scroll'}</span>
 			<div class="flex h-8 w-5 items-start justify-center rounded-full border-2 py-1"
 				style="border-color: var(--muted-foreground);">
 				<div class="animate-bounce h-2 w-0.5 rounded-full" style="background: var(--primary);"></div>

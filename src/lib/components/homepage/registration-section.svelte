@@ -2,6 +2,7 @@
 	import { toast } from 'svelte-french-toast';
 	import AnimateOnScroll from '$lib/components/animate-on-scroll.svelte';
 	import PageTitle from '../page-title.svelte';
+	import { t } from '$lib/i18n.svelte';
 
 	let form = $state({
 		name: '',
@@ -15,37 +16,31 @@
 	let submitting = $state(false);
 	let submitted = $state(false);
 
-	const subjects = [
-		'Foundation Algebra',
-		'Calculus',
-		'Geometry & Proofs',
-		'Statistics & Probability',
-		'SAT / ACT Math Prep',
-		'Linear Algebra',
-		'Other'
-	];
+	let subjects = $derived(t('registration.form.subjects') as string[] || [
+		'Foundation Algebra', 'Calculus', 'Geometry & Proofs',
+		'Statistics & Probability', 'SAT / ACT Math Prep', 'Linear Algebra', 'Other'
+	]);
 
-	const levels = [
-		'Middle School (Grade 7–9)',
-		'High School (Grade 10–12)',
-		'Pre-University / A-Level / IB',
-		'University / College',
-		'Adult Learner'
-	];
+	let levels = $derived(t('registration.form.levels') as string[] || [
+		'Middle School (Grade 7–9)', 'High School (Grade 10–12)',
+		'Pre-University / A-Level / IB', 'University / College', 'Adult Learner'
+	]);
 
-	const schedules = ['Morning (8am–12pm)', 'Afternoon (12pm–5pm)', 'Evening (5pm–9pm)', 'Flexible'];
+	let schedules = $derived(t('registration.form.schedules') as string[] || [
+		'Morning (8am–12pm)', 'Afternoon (12pm–5pm)', 'Evening (5pm–9pm)', 'Flexible'
+	]);
 
 	async function handleSubmit(e: SubmitEvent) {
 		e.preventDefault();
 		if (!form.name || !form.email || !form.subject || !form.level) {
-			toast.error('Please fill in all required fields.');
+			toast.error(t('registration.form.errorRequired') || 'Please fill in all required fields.');
 			return;
 		}
 		submitting = true;
 		await new Promise((r) => setTimeout(r, 1200));
 		submitting = false;
 		submitted = true;
-		toast.success('🎉 Registration received! Mathera will reach out within 24 hours.');
+		toast.success(t('registration.form.successMessage') || '🎉 Registration received! Mathera will reach out within 24 hours.');
 		form = { name: '', email: '', phone: '', subject: '', level: '', schedule: '', message: '' };
 	}
 </script>
@@ -58,9 +53,9 @@
 
 	<div class="container-modern relative z-10">
 		<PageTitle
-			title="Start Learning Today"
-			brief="Let's begin"
-			description="Fill in the form below and Mathera will get back to you within 24 hours to schedule your first session"
+			title={t('registration.title')}
+			brief={t('registration.brief')}
+			description={t('registration.desc')}
 		/>
 
 		<div class="mx-auto max-w-3xl relative">
@@ -103,27 +98,27 @@
 						<div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
 							<div>
 								<label for="reg-name" class="mb-1.5 block text-sm font-medium">
-									Full Name <span style="color: var(--accent);">*</span>
+									{t('registration.form.name') || 'Name'} <span style="color: var(--accent);">*</span>
 								</label>
 								<input
 									id="reg-name"
 									type="text"
 									bind:value={form.name}
 									class="input-modern"
-									placeholder="Your name"
+									placeholder={t('registration.form.namePlaceholder') || 'Your name'}
 									required
 								/>
 							</div>
 							<div>
 								<label for="reg-email" class="mb-1.5 block text-sm font-medium">
-									Email Address <span style="color: var(--accent);">*</span>
+									{t('registration.form.email') || 'Email'} <span style="color: var(--accent);">*</span>
 								</label>
 								<input
 									id="reg-email"
 									type="email"
 									bind:value={form.email}
 									class="input-modern"
-									placeholder="you@example.com"
+									placeholder={t('registration.form.emailPlaceholder') || 'you@example.com'}
 									required
 								/>
 							</div>
@@ -132,19 +127,19 @@
 						<div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
 							<div>
 								<label for="reg-phone" class="mb-1.5 block text-sm font-medium text-muted-foreground">
-									Phone (optional)
+									{t('registration.form.phone') || 'Phone (optional)'}
 								</label>
 								<input
 									id="reg-phone"
 									type="tel"
 									bind:value={form.phone}
 									class="input-modern"
-									placeholder="+62 xxx xxxx xxxx"
+									placeholder={t('registration.form.phonePlaceholder') || '+358 xx xxx xxxx'}
 								/>
 							</div>
 							<div>
 								<label for="reg-subject" class="mb-1.5 block text-sm font-medium">
-									Subject <span style="color: var(--accent);">*</span>
+									{t('registration.form.subject') || 'Subject'} <span style="color: var(--accent);">*</span>
 								</label>
 								<select
 									id="reg-subject"
@@ -152,7 +147,7 @@
 									class="input-modern"
 									required
 								>
-									<option value="" disabled>Select a subject</option>
+									<option value="" disabled>{t('registration.form.selectSubject') || 'Select a subject'}</option>
 									{#each subjects as s}
 										<option value={s}>{s}</option>
 									{/each}
@@ -163,7 +158,7 @@
 						<div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
 							<div>
 								<label for="reg-level" class="mb-1.5 block text-sm font-medium">
-									Your Level <span style="color: var(--accent);">*</span>
+									{t('registration.form.level') || 'Your Level'} <span style="color: var(--accent);">*</span>
 								</label>
 								<select
 									id="reg-level"
@@ -171,7 +166,7 @@
 									class="input-modern"
 									required
 								>
-									<option value="" disabled>Select your level</option>
+									<option value="" disabled>{t('registration.form.selectLevel') || 'Select your level'}</option>
 									{#each levels as l}
 										<option value={l}>{l}</option>
 									{/each}
@@ -179,14 +174,14 @@
 							</div>
 							<div>
 								<label for="reg-schedule" class="mb-1.5 block text-sm font-medium text-muted-foreground">
-									Preferred Schedule
+									{t('registration.form.schedule') || 'Preferred Schedule'}
 								</label>
 								<select
 									id="reg-schedule"
 									bind:value={form.schedule}
 									class="input-modern"
 								>
-									<option value="" disabled>Select a time</option>
+									<option value="" disabled>{t('registration.form.selectTime') || 'Select a time'}</option>
 									{#each schedules as s}
 										<option value={s}>{s}</option>
 									{/each}
@@ -196,19 +191,19 @@
 
 						<div>
 							<label for="reg-message" class="mb-1.5 block text-sm font-medium text-muted-foreground">
-								Tell me about your goals (optional)
+								{t('registration.form.message') || 'Message (Optional)'}
 							</label>
 							<textarea
 								id="reg-message"
 								bind:value={form.message}
 								class="input-modern min-h-28 resize-y"
-								placeholder="What would you like to achieve? Any specific struggles or upcoming exams?"
+								placeholder={t('registration.form.messagePlaceholder') || 'What would you like to achieve? Any specific struggles or upcoming exams?'}
 							></textarea>
 						</div>
 
 						<div class="flex items-center justify-between gap-4 pt-2">
 							<p class="text-muted-foreground text-xs">
-								<span style="color: var(--accent);">*</span> Required fields
+								<span style="color: var(--accent);">*</span> {t('registration.form.required') || 'Required fields'}
 							</p>
 							<button
 								type="submit"
@@ -222,7 +217,7 @@
 									</svg>
 									<span>Submitting...</span>
 								{:else}
-									<span>Let's Begin</span>
+									<span>{t('registration.form.submit') || 'Send'}</span>
 								{/if}
 							</button>
 						</div>

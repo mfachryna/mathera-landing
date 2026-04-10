@@ -2,40 +2,38 @@
 	import AnimateOnScroll from '$lib/components/animate-on-scroll.svelte';
 	import PageTitle from '../page-title.svelte';
 	import Icon from '@iconify/svelte';
+	import { t } from '$lib/i18n.svelte';
 
-	const aboutCards = [
+	let aboutCards = $derived([
 		{
-			title: 'The Explainer',
-			icon: 'lucide:lightbulb',
-			description:
-				"Complex mathematics becomes crystal clear through my step-by-step approach. I break down intimidating formulas into simple, logical steps, making sure you truly understand the 'why', not just memorize the 'how'."
+			title: t('about.general.title'),
+			icon: 'lucide:user',
+			description: t('about.general.desc')
 		},
 		{
-			title: 'The Coach',
-			icon: 'lucide:target',
-			description:
-				'Every student learns differently. I adapt my teaching pace, style, and methods to match how you think. Whether you need visual explanations, practice drills, or conceptual deep-dives, I meet you where you are.'
+			title: t('about.education.title'),
+			icon: 'lucide:graduation-cap',
+			description: t('about.education.desc')
 		},
 		{
-			title: 'The Problem Solver',
+			title: t('about.experience.title'),
 			icon: 'lucide:trophy',
-			description:
-				'From homework struggles to high-stakes exams, I give you the tools and strategies to tackle any problem with confidence. Real exam prep, timed practice, and systematic problem-solving techniques included.'
+			description: t('about.experience.desc')
 		}
-	];
+	]);
 
-	const badges = [
-		{ icon: 'lucide:ruler', label: 'Structured Teaching' },
-		{ icon: 'lucide:calculator', label: 'Concept-First Approach' },
-		{ icon: 'lucide:crosshair', label: 'Exam-Ready Focus' },
-		{ icon: 'lucide:message-circle', label: 'Patient & Supportive' },
-		{ icon: 'lucide:refresh-cw', label: 'Adaptive Methods' }
-	];
+	let badges = $derived([
+		{ icon: 'lucide:ruler', label: t('about.badges.structured') || 'Structured Teaching' },
+		{ icon: 'lucide:calculator', label: t('about.badges.conceptFirst') || 'Concept-First Approach' },
+		{ icon: 'lucide:crosshair', label: t('about.badges.examReady') || 'Exam-Ready Focus' },
+		{ icon: 'lucide:message-circle', label: t('about.badges.patient') || 'Patient & Supportive' },
+		{ icon: 'lucide:refresh-cw', label: t('about.badges.adaptive') || 'Adaptive Methods' }
+	]);
 </script>
 
 <section class="section-padding relative overflow-hidden" id="about" aria-labelledby="about-title">
 	<div class="container-modern relative z-10">
-		<PageTitle title="About Me" brief="Get to know your tutor" />
+		<PageTitle title={t('about.title')} brief={t('about.brief')} />
 
 		<div class="relative grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
 			{#each aboutCards as card, i (card.title)}
@@ -90,9 +88,7 @@
 			<AnimateOnScroll animation="fade" delay={500}>
 				<div class="mx-auto max-w-3xl">
 					<p class="text-muted-foreground mb-8 text-base leading-relaxed lg:text-lg">
-						I believe that every student has mathematical potential waiting to be unlocked.
-						My goal is not just to get you through the next exam, it's to build genuine
-						mathematical intuition that will serve you for life.
+						{t('about.footer')}
 					</p>
 					<div class="flex flex-wrap justify-center gap-3">
 						{#each badges as badge}

@@ -4,15 +4,16 @@
 	import AnimateOnScroll from '$lib/components/animate-on-scroll.svelte';
 	import PageTitle from '../page-title.svelte';
 	import Icon from '@iconify/svelte';
+	import { t } from '$lib/i18n.svelte';
 
-	const skills = [
-		{ name: 'Algebra', symbol: 'x²', level: 'Expert', pct: 98, color: 'var(--purple)', desc: 'Linear, quadratic, polynomial and abstract algebra' },
-		{ name: 'Calculus', symbol: '∫', level: 'Expert', pct: 95, color: 'var(--purple-light)', desc: 'Differential, integral and multivariable calculus' },
-		{ name: 'Geometry', symbol: 'Δ', level: 'Advanced', pct: 92, color: 'var(--warning)', desc: 'Euclidean, coordinate and analytical geometry' },
-		{ name: 'Statistics', symbol: 'σ', level: 'Advanced', pct: 90, color: 'var(--success)', desc: 'Probability, distributions and statistical analysis' },
-		{ name: 'Trigonometry', symbol: 'θ', level: 'Expert', pct: 96, color: 'var(--purple)', desc: 'Trigonometric functions, identities and equations' },
-		{ name: 'Linear Algebra', symbol: 'λ', level: 'Advanced', pct: 88, color: 'var(--accent)', desc: 'Matrices, vectors and linear transformations' },
-	];
+	let skills = $derived([
+		{ name: t('skills.topics')[0] || 'Algebra', symbol: 'x²', level: t('skills.levels.expert') || 'Expert', pct: 98, color: 'var(--purple)', desc: t('skills.descs.algebra') || 'Linear, quadratic, polynomial and abstract algebra' },
+		{ name: t('skills.topics')[2] || 'Calculus', symbol: '∫', level: t('skills.levels.expert') || 'Expert', pct: 95, color: 'var(--purple-light)', desc: t('skills.descs.calculus') || 'Differential, integral and multivariable calculus' },
+		{ name: t('skills.topics')[1] || 'Geometry', symbol: 'Δ', level: t('skills.levels.advanced') || 'Advanced', pct: 92, color: 'var(--warning)', desc: t('skills.descs.geometry') || 'Euclidean, coordinate and analytical geometry' },
+		{ name: t('skills.topics')[3] || 'Statistics', symbol: 'σ', level: t('skills.levels.advanced') || 'Advanced', pct: 90, color: 'var(--success)', desc: t('skills.descs.statistics') || 'Probability, distributions and statistical analysis' },
+		{ name: t('skills.topics')[4] || 'Trigonometry', symbol: 'θ', level: t('skills.levels.expert') || 'Expert', pct: 96, color: 'var(--purple)', desc: t('skills.descs.trigonometry') || 'Trigonometric functions, identities and equations' },
+		{ name: t('skills.linearAlgebra') || 'Linear Algebra', symbol: 'λ', level: t('skills.levels.advanced') || 'Advanced', pct: 88, color: 'var(--accent)', desc: t('skills.descs.linearAlgebra') || 'Matrices, vectors and linear transformations' },
+	]);
 
 	let barWidths: number[] = $state(skills.map(() => 0));
 	let mounted = false;
@@ -40,7 +41,7 @@
 
 <section class="section-padding relative overflow-hidden" id="skills" aria-labelledby="skills-title">
 	<div class="container-modern relative z-10">
-		<PageTitle title="My Expertise" brief="What I teach best" />
+		<PageTitle title={t('skills.title')} brief={t('skills.brief')} />
 
 		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each skills as skill, i}
@@ -71,7 +72,7 @@
 
 						<div class="mt-4">
 							<div class="mb-1.5 flex justify-between text-xs">
-								<span class="text-muted-foreground">Proficiency</span>
+								<span class="text-muted-foreground">{t('skills.proficiency') || 'Proficiency'}</span>
 								<span class="font-semibold" style="color: {skill.color};">{skill.pct}%</span>
 							</div>
 							<div class="progress-modern">
@@ -89,7 +90,7 @@
 		<AnimateOnScroll animation="fade" delay={700} threshold={0.1}>
 			<div class="mt-16 text-center">
 				<p class="text-muted-foreground text-sm">
-					Also comfortable with: Discrete Mathematics, Number Theory, Mathematical Logic, SAT/ACT Math Prep
+					{t('skills.alsoComfortable') || 'Also comfortable with: Discrete Mathematics, Number Theory, Mathematical Logic, SAT/ACT Math Prep'}
 				</p>
 			</div>
 		</AnimateOnScroll>

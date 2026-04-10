@@ -3,49 +3,50 @@
 	import PageTitle from '../page-title.svelte';
 	import AnimateOnScroll from '../animate-on-scroll.svelte';
 	import Icon from '@iconify/svelte';
+	import { t } from '$lib/i18n.svelte';
 
-	const experiences = [
+	let experiences = $derived([
 		{
 			id: 1,
-			role: 'Senior Mathematics Tutor',
-			institution: "Mathera Tutoring Practice",
-			period: 'Jan 2022 to Present',
-			type: 'Full-time',
-			description:
-				'Running an independent tutoring practice serving high school and university students. Developed customized curricula for 50+ students, achieving a 98% exam pass rate. Specializing in calculus, algebra, and SAT math preparation.',
-			highlights: ['200+ sessions delivered', '98% pass rate', 'Curriculum development', 'SAT coaching']
+			role: t('experience.e1.role'),
+			institution: t('experience.e1.institution'),
+			period: t('experience.e1.period'),
+			type: t('experience.types.fullTime'),
+			typeKey: 'Full-time',
+			description: t('experience.e1.desc'),
+			highlights: t('experience.e1.highlights') as string[]
 		},
 		{
 			id: 2,
-			role: 'Mathematics Teaching Assistant',
-			institution: 'State University, Department of Mathematics',
-			period: 'Aug 2020 to Dec 2021',
-			type: 'Part-time',
-			description:
-				'Assisted professors in teaching Calculus I & II and Linear Algebra to undergraduate students. Facilitated weekly tutorial sessions, graded assignments, and provided one-on-one support during office hours.',
-			highlights: ['Calculus I & II', 'Linear Algebra', '120+ students assisted', 'Tutorial facilitation']
+			role: t('experience.e2.role'),
+			institution: t('experience.e2.institution'),
+			period: t('experience.e2.period'),
+			type: t('experience.types.partTime'),
+			typeKey: 'Part-time',
+			description: t('experience.e2.desc'),
+			highlights: t('experience.e2.highlights') as string[]
 		},
 		{
 			id: 3,
-			role: 'Math Olympiad Coach',
-			institution: 'Sunrise High School',
-			period: 'Mar 2019 to Jul 2020',
-			type: 'Contract',
-			description:
-				"Coached the school's Math Olympiad team. Designed challenging problem sets, ran weekly practice sessions, and mentored students through regional and national competitions. Team placed 2nd nationally.",
-			highlights: ['Olympiad preparation', 'Problem set design', '2nd place nationally', 'Team mentorship']
+			role: t('experience.e3.role'),
+			institution: t('experience.e3.institution'),
+			period: t('experience.e3.period'),
+			type: t('experience.types.contract'),
+			typeKey: 'Contract',
+			description: t('experience.e3.desc'),
+			highlights: t('experience.e3.highlights') as string[]
 		},
 		{
 			id: 4,
-			role: 'Online Math Tutor',
-			institution: 'Freelance via Multiple Platforms',
-			period: 'Jan 2018 to Feb 2019',
-			type: 'Freelance',
-			description:
-				'Provided online mathematics tutoring to students across different countries and curricula (IB, Cambridge A-Level, US AP Math). Adapted teaching methods for asynchronous and synchronous online learning.',
-			highlights: ['IB Mathematics', 'Cambridge A-Level', 'AP Calculus', 'Online teaching']
+			role: t('experience.e4.role'),
+			institution: t('experience.e4.institution'),
+			period: t('experience.e4.period'),
+			type: t('experience.types.freelance'),
+			typeKey: 'Freelance',
+			description: t('experience.e4.desc'),
+			highlights: t('experience.e4.highlights') as string[]
 		}
-	];
+	]);
 
 	let activeIndex = $state(0);
 
@@ -64,9 +65,9 @@
 <section class="section-padding relative overflow-hidden" id="experiences" aria-labelledby="experiences-title">
 	<div class="container-modern relative z-10">
 		<PageTitle
-			title="Teaching Journey"
-			brief="My experience"
-			description="A timeline of my growth as an educator and mathematician"
+			title={t('experience.title')}
+			brief={t('experience.brief')}
+			description={t('experience.subtitle')}
 		/>
 
 		<div class="relative">
@@ -91,7 +92,7 @@
 						>
 							<div
 								class="absolute left-0 top-0 bottom-0 w-1 transition-all duration-300"
-								style="background: {typeColors[exp.type] ?? 'var(--border)'}; {activeIndex === i ? 'width: 4px;' : ''}"
+								style="background: {typeColors[exp.typeKey] ?? 'var(--border)'}; {activeIndex === i ? 'width: 4px;' : ''}"
 							></div>
 
 							<div class="flex items-start justify-between p-6 pl-8">
@@ -99,7 +100,7 @@
 									<div class="mb-2 flex flex-wrap items-center gap-2">
 										<span
 											class="rounded-full px-2.5 py-0.5 text-xs font-semibold"
-											style="background: oklch(from {typeColors[exp.type] ?? 'var(--muted)'} l c h / 0.12); color: {typeColors[exp.type] ?? 'var(--muted-foreground)'};"
+											style="background: oklch(from {typeColors[exp.typeKey] ?? 'var(--muted)'} l c h / 0.12); color: {typeColors[exp.typeKey] ?? 'var(--muted-foreground)'};"
 										>
 											{exp.type}
 										</span>
