@@ -3,6 +3,7 @@ export const translations: Record<string, any> = {
 		nav: {
 			about: 'About',
 			expertise: 'Expertise',
+			experiences: 'Experience',
 			courses: 'Courses',
 			contact: 'Contact'
 		},
@@ -261,6 +262,7 @@ export const translations: Record<string, any> = {
 		nav: {
 			about: 'Tietoa',
 			expertise: 'Osaaminen',
+			experiences: 'Kokemus',
 			courses: 'Kurssit',
 			contact: 'Ota yhteyttä'
 		},

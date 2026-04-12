@@ -19,22 +19,24 @@
 		children?: any;
 	}>();
 
-	const siteTitle = 'Muhammad Fachry Noorchoolish Arif - Software Engineer';
-	const siteDescription =
-		'Personal portfolio of Muhammad Fachry Noorchoolish Arif, a Software Engineer specializing in web development.';
+	import { t } from '$lib/i18n.svelte';
+
+	const siteUrl = 'https://mathera.fi';
 	const defaultImage = '/images/avatar/avatar.jpeg';
-	const siteUrl = 'https://mfachryna.my.id';
+
+	let currentSiteTitle = $derived(t('seo.title') || 'Mathera - Expert Mathematics Tutoring');
+	let currentSiteDescription = $derived(t('seo.description') || 'Expert mathematics tutoring by Mathera. Algebra, Calculus, Geometry, Statistics and more.');
+	let currentOgTitle = $derived(t('seo.ogTitle') || currentSiteTitle);
+	let currentOgDescription = $derived(t('seo.ogDescription') || currentSiteDescription);
 </script>
 
 <svelte:head>
-	<title>{title || siteTitle}</title>
-	<meta name="description" content={description || siteDescription} />
-	{#if keywords}
-		<meta name="keywords" content={keywords} />
-	{/if}
+	<title>{title || currentSiteTitle}</title>
+	<meta name="description" content={description || currentSiteDescription} />
+	<meta name="keywords" content={keywords || 'math tutor, algebra tutor, calculus tutor, geometry tutor, online math tutoring, SAT math prep, mathematics expert, learn math, ylioppilaskoe, matematiikka, oppitunnit'} />
 
-	<meta property="og:title" content={title || siteTitle} />
-	<meta property="og:description" content={description || siteDescription} />
+	<meta property="og:title" content={title || currentOgTitle} />
+	<meta property="og:description" content={description || currentOgDescription} />
 	<meta property="og:type" content={type} />
 	<meta property="og:url" content={url || siteUrl} />
 	<meta
@@ -45,8 +47,8 @@
 	/>
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={title || siteTitle} />
-	<meta name="twitter:description" content={description || siteDescription} />
+	<meta name="twitter:title" content={title || currentOgTitle} />
+	<meta name="twitter:description" content={description || currentOgDescription} />
 	<meta
 		name="twitter:image"
 		content={(image || defaultImage).startsWith('http')

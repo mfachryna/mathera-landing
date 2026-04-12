@@ -16,7 +16,7 @@
 </script>
 
 <SEO
-	title="Page Not Found | Muhammad Fachry Noorchoolish Arif"
+	title="Page Not Found | Mathera"
 	description="The page you're looking for doesn't exist."
 />
 
