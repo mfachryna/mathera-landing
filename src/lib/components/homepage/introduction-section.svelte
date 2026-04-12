@@ -94,6 +94,47 @@
 		{ value: '50+', label: t('stats.students') || 'Students Taught' },
 		{ value: '10+', label: t('stats.experience') || 'Years Experience' }
 	]);
+
+	function countUp(node: HTMLElement, targetText: string) {
+		if (!browser) return;
+		const match = targetText.match(/^([0-9]+)(.*)$/);
+		if (!match) return;
+
+		const target = parseInt(match[1], 10);
+		const suffix = match[2] || '';
+		
+		const duration = 2000;
+		const fps = 60;
+		const frameDuration = 1000 / fps;
+		const totalFrames = Math.round(duration / frameDuration);
+		let frame = 0;
+
+		const observer = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting) {
+				const animate = () => {
+					frame++;
+					const progress = frame / totalFrames;
+					const easeOutQuad = (t: number) => t * (2 - t);
+					const current = Math.round(target * easeOutQuad(Math.min(progress, 1)));
+					node.innerText = current + suffix;
+
+					if (frame < totalFrames) {
+						requestAnimationFrame(animate);
+					}
+				};
+				requestAnimationFrame(animate);
+				observer.disconnect();
+			}
+		}, { threshold: 0.1 });
+
+		observer.observe(node);
+
+		return {
+			destroy() {
+				observer.disconnect();
+			}
+		};
+	}
 </script>
 
 <svelte:head>
@@ -178,8 +219,9 @@
 					>
 						<div
 							class="gradient-text text-3xl font-bold sm:text-4xl"
-					>
-						{stat.value}
+							use:countUp={stat.value}
+						>
+							{stat.value}
 						</div>
 						<div class="text-muted-foreground mt-1 text-xs sm:text-sm">{stat.label}</div>
 					</div>
