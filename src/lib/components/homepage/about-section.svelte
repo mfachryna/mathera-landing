@@ -25,17 +25,7 @@
 			<article class="card-modern !p-0 overflow-hidden bg-background/60 backdrop-blur-md">
 
 				<!-- ═══ Section 1: General — Pic #1 + Greeting ═══ -->
-				<div class="grid grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[380px_1fr] gap-0">
-					<!-- Pic #1 -->
-					<div class="relative h-64 md:h-auto overflow-hidden bg-muted/20">
-						<img
-							src="/images/avatar/avatar.jpeg"
-							alt="Aman"
-							class="absolute inset-0 w-full h-full object-cover object-center"
-						/>
-						<div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/10"></div>
-					</div>
-
+				<div class="">
 					<!-- Text -->
 					<div class="p-8 md:p-10 flex flex-col justify-center">
 

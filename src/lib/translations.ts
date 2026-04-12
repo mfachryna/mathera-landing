@@ -40,9 +40,9 @@ export const translations: Record<string, any> = {
 				]
 			},
 			experience: {
-				title: 'Competition Experience',
+				title: 'Competition Experience',	
 				intro: 'I have participated in mathematics and science competitions since primary school. My experience includes:',
-				bullets: ['Mental math competitions', 'MAOL competitions', '<a href="https://www.aalto.fi/fi/uutiset/aallon-opiskelijoille-mitaleita-kansainvalisessa-matematiikkakilpailussa-0" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-accent hover:underline font-medium ml-1 transition-colors">Math Olympiad training', 'Math camps', 'IMC (International Mathematics Competition) ↗</a>'],
+				bullets: ['Mental math competitions', 'MAOL competitions', 'Math Olympiad training', 'Math camps', '<a href="https://www.aalto.fi/fi/uutiset/aallon-opiskelijoille-mitaleita-kansainvalisessa-matematiikkakilpailussa-0" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-accent hover:underline font-medium ml-1 transition-colors">IMC (International Mathematics Competition) ↗</a>'],
 				outro: 'I have achieved several good placements, honorable mentions, and medals. This background has given me a strong understanding of mathematics and how it is learned effectively.'
 			},
 			footer: 'If you want clarity in mathematics, confidence for exams, or to raise your grades, I am happy to help. Let\'s make your goals a reality together.',
@@ -99,7 +99,7 @@ export const translations: Record<string, any> = {
 					'Personal coaching to develop thought models and problem-solving skills',
 					'Tutor-based approach: the student and tutor plan together what topics to cover'
 				],
-				price: ''
+				price: '<del class="text-muted-foreground mr-1.5 opacity-70">1990€</del><span class="text-accent font-bold">1490€</span> (includes 20h (+4h) session)'
 			},
 			c2: {
 				title: 'General Mathematics Tutoring',
@@ -115,7 +115,7 @@ export const translations: Record<string, any> = {
 					'Flexible pacing focusing on topics that pose the biggest challenges',
 					'Tutor-based approach: the student and tutor plan the curriculum and pace together'
 				],
-				price: ''
+				price: 'from 50€/h'
 			},
 			c3: {
 				title: 'Matriculation Exam Coaching',
@@ -131,7 +131,7 @@ export const translations: Record<string, any> = {
 					'Personal coaching to develop test strategies and time management',
 					'Tutor-based approach: we collaboratively plan which topics to prioritize'
 				],
-				price: ''
+				price: 'from 1490€ (includes 20h session)'
 			},
 			c4: {
 				title: 'International Exam Prep (SAT & more)',
@@ -147,7 +147,7 @@ export const translations: Record<string, any> = {
 					'Personal coaching to develop time management and efficient solving methods',
 					'Tutor-based approach: collaboratively identifying focus areas to reach your target score'
 				],
-				price: ''
+				price: 'from 1490€ (includes 20h session)'
 			}
 		},
 		experience: {
@@ -345,7 +345,7 @@ export const translations: Record<string, any> = {
 					'Henkilökohtaista valmennusta, jossa kehitetään ajattelumalleja ja ongelmanratkaisua',
 					'Tutor-perusteinen ohjaus: oppilas ja tutor suunnittelevat yhdessä sisällön'
 				],
-				price: ''
+				price: '<del class="text-muted-foreground mr-1.5 opacity-70">1990€</del><span class="text-accent font-bold">1490€</span> (sis. 20h (+4h) opetusta)'
 			},
 			c2: {
 				title: 'Matematiikan tutorointi (peruskoulusta korkeakoulutasolle)',
@@ -361,7 +361,7 @@ export const translations: Record<string, any> = {
 					'Joustavaa etenemistä, keskittyen haastavimpiin aiheisiin',
 					'Tutor-perusteinen lähestymistapa: opiskelusuunnitelma tehdään yhdessä'
 				],
-				price: ''
+				price: 'alkaen 50€/h'
 			},
 			c3: {
 				title: 'Matematiikkavalmennus ylioppilaskokeeseen (lyhyt ja pitkä)',
@@ -377,7 +377,7 @@ export const translations: Record<string, any> = {
 					'Henkilökohtaista valmennusta koestrategian ja ajankäytön kehittämiseksi',
 					'Yhteisesti luotu painotussuunnitelma tutorin kanssa'
 				],
-				price: ''
+				price: 'alkaen 1490€ (sis. 20h opetusta)'
 			},
 			c4: {
 				title: 'Matematiikkavalmennus kansainvälisiin kokeisiin (SAT ym.)',
@@ -393,7 +393,7 @@ export const translations: Record<string, any> = {
 					'Henkilökohtaista valmennusta ajankäytön ja ratkaisutapojen hiomiseen',
 					'Tavoitepistemäärän mukainen yksilöllinen painotussuunnitelma'
 				],
-				price: ''
+				price: 'alkaen 1490€ (sis. 20h opetusta)'
 			}
 		},
 		experience: {
