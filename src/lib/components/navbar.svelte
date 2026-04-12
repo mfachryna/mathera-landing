@@ -11,7 +11,7 @@
 	let navLinks = $derived([
 		{ name: t('nav.about'), href: '/#about', isCTA: false },
 		{ name: t('nav.courses'), href: '/#courses', isCTA: false },
-		{ name: t('nav.experiences'), href: '/#experiences', isCTA: false }
+		// { name: t('nav.experiences'), href: '/#experiences', isCTA: false }
 	]);
 
 	function handleScroll() {
