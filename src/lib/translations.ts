@@ -99,7 +99,7 @@ export const translations: Record<string, any> = {
 					'Personal coaching to develop thought models and problem-solving skills',
 					'Tutor-based approach: the student and tutor plan together what topics to cover'
 				],
-				price: '<del class="text-muted-foreground mr-1.5 opacity-70">1990€</del><span class="text-accent font-bold">1490€</span> (includes 20h (+4h) session)'
+				price: '<del class="text-muted-foreground mr-1.5 opacity-70">1990€</del><span class="text-accent font-bold">1490€</span>'
 			},
 			c2: {
 				title: 'General Mathematics Tutoring',
@@ -345,7 +345,7 @@ export const translations: Record<string, any> = {
 					'Henkilökohtaista valmennusta, jossa kehitetään ajattelumalleja ja ongelmanratkaisua',
 					'Tutor-perusteinen ohjaus: oppilas ja tutor suunnittelevat yhdessä sisällön'
 				],
-				price: '<del class="text-muted-foreground mr-1.5 opacity-70">1990€</del><span class="text-accent font-bold">1490€</span> (sis. 20h (+4h) opetusta)'
+				price: '<del class="text-muted-foreground mr-1.5 opacity-70">1990€</del><span class="text-accent font-bold">1490€</span>'
 			},
 			c2: {
 				title: 'Matematiikan tutorointi (peruskoulusta korkeakoulutasolle)',

@@ -19,7 +19,7 @@
 		<AboutSection />
 		<!-- <SkillsSection /> -->
 		<CoursesSection />
-		<ExperiencesSection />
+		<!-- <ExperiencesSection /> -->
 		<RegistrationSection />
 	</div>
 </div>
