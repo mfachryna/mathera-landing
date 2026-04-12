@@ -42,7 +42,7 @@ export const translations: Record<string, any> = {
 			experience: {
 				title: 'Competition Experience',
 				intro: 'I have participated in mathematics and science competitions since primary school. My experience includes:',
-				bullets: ['Mental math competitions', 'MAOL competitions', 'Math Olympiad training', 'Math camps', 'IMC (International Mathematics Competition)'],
+				bullets: ['Mental math competitions', 'MAOL competitions', '<a href="https://www.aalto.fi/fi/uutiset/aallon-opiskelijoille-mitaleita-kansainvalisessa-matematiikkakilpailussa-0" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-accent hover:underline font-medium ml-1 transition-colors">Math Olympiad training', 'Math camps', 'IMC (International Mathematics Competition) ↗</a>'],
 				outro: 'I have achieved several good placements, honorable mentions, and medals. This background has given me a strong understanding of mathematics and how it is learned effectively.'
 			},
 			footer: 'If you want clarity in mathematics, confidence for exams, or to raise your grades, I am happy to help. Let\'s make your goals a reality together.',
@@ -78,7 +78,14 @@ export const translations: Record<string, any> = {
 			includesLabel: 'Course includes:',
 			notesLabel: 'Important Notes:',
 			weeks: 'weeks',
-			studentsLabel: 'students',
+						studentsLabel: 'students',
+			globalNotes: [
+				'Courses do not guarantee specific outcomes, grades, or admission. Results depend on the student\'s starting level, effort, target goals, and the competitive environment.',
+				'Success in mathematics requires a strong calculation routine and regular repetition. Lessons alone are not enough; independent practice outside of class is vital. Our coaching provides the tools, strategies, and understanding needed.',
+				'Our promise: the student will gain a deeper understanding of previously challenging topics, learn to work more efficiently, and develop effective problem-solving strategies.',
+				'Cancellation policy: Cancellations must be made at least 24 hours in advance. Late cancellations are not refunded. If the tutor cancels, a makeup lesson is provided.',
+				'Where applicable, mock exams and practice tests are pre-tailored to best reflect actual exam conditions.'
+			],
 			c1: {
 				title: 'Entrance Exam Coaching (Business & Engineering)',
 				level: 'Entrance Exams',
@@ -91,13 +98,6 @@ export const translations: Record<string, any> = {
 					'4 customized mock exams simulating the actual test situation',
 					'Personal coaching to develop thought models and problem-solving skills',
 					'Tutor-based approach: the student and tutor plan together what topics to cover'
-				],
-				importantNotes: [
-					'The course does not guarantee admission. Outcomes depend on the student\'s starting level, effort, target program, and competition.',
-					'Entrance exams require a strong calculation routine, which cannot be achieved through lessons alone. Significant independent practice is required outside of class.',
-					'Our promise: the student will understand previously challenging math areas, learn to manage time effectively, and develop a strategic approach.',
-					'Cancellation policy: Cancellations must be made at least 24 hours in advance. Late cancellations are not refunded. If the tutor cancels, a makeup lesson is arranged for free.',
-					'Mock exams are pre-tailored to best reflect actual exam conditions.'
 				],
 				price: ''
 			},
@@ -115,12 +115,6 @@ export const translations: Record<string, any> = {
 					'Flexible pacing focusing on topics that pose the biggest challenges',
 					'Tutor-based approach: the student and tutor plan the curriculum and pace together'
 				],
-				importantNotes: [
-					'Tutoring does not guarantee specific grades. Progress depends on your starting level, goals, and personal effort.',
-					'Improving in math requires regular practice. Lessons alone are not enough; independent work outside of class is necessary.',
-					'Our promise: the student will understand topics they previously found difficult, develop logical thinking and problem-solving skills, and learn to work more efficiently.',
-					'Cancellation policy: Cancellations must be made at least 24 hours in advance. Late cancellations are not refunded.'
-				],
 				price: ''
 			},
 			c3: {
@@ -137,12 +131,6 @@ export const translations: Record<string, any> = {
 					'Personal coaching to develop test strategies and time management',
 					'Tutor-based approach: we collaboratively plan which topics to prioritize'
 				],
-				importantNotes: [
-					'Coaching does not guarantee a specific grade. The final result depends on your starting level, effort, goals, and exam performance.',
-					'Success in the exam requires a strong calculation routine and independent practice. The course offers guidance, clarity for difficult topics, and efficient problem-solving methods.',
-					'Our promise: the student will understand key mathematical topics better, learn how to answer clearly to maximize points, and develop confidence.',
-					'Cancellation policy: Cancellations must be made at least 24 hours in advance. Late cancellations are not refunded.'
-				],
 				price: ''
 			},
 			c4: {
@@ -158,12 +146,6 @@ export const translations: Record<string, any> = {
 					'Customized practice materials and mock exams matching the real test',
 					'Personal coaching to develop time management and efficient solving methods',
 					'Tutor-based approach: collaboratively identifying focus areas to reach your target score'
-				],
-				importantNotes: [
-					'Coaching does not guarantee a specific score. Results depend on various factors, including starting level, effort, goals, and the competitive environment.',
-					'Succeeding in SAT math requires calculation routines and repetition. Independent practice outside of class is vital.',
-					'Our promise: the student will gain a deeper understanding of key topics and question types, learn to solve problems faster and with fewer errors.',
-					'Cancellation policy: Cancellations must be made at least 24 hours in advance. Late cancellations are not refunded.'
 				],
 				price: ''
 			}
@@ -306,7 +288,7 @@ export const translations: Record<string, any> = {
 			experience: {
 				title: 'Kilpailukokemus',
 				intro: 'Olen osallistunut matematiikan ja luonnontieteiden kilpailuihin jo ala-asteelta lähtien. Kokemusta on muun muassa:',
-				bullets: ['Päässälaskukilpailuista', 'MAOL-kilpailuista', 'Matematiikkaolympialaisten valmennuksesta', 'Matematiikkaleireistä', 'IMC:stä (International Mathematics Competition)'],
+				bullets: ['Päässälaskukilpailuista', 'MAOL-kilpailuista', 'Matematiikkaolympialaisten valmennuksesta', 'Matematiikkaleireistä', '<a href="https://www.aalto.fi/fi/uutiset/aallon-opiskelijoille-mitaleita-kansainvalisessa-matematiikkakilpailussa-0" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-accent hover:underline font-medium ml-1 transition-colors">IMC:stä (International Mathematics Competition)  ↗</a>'],
 				outro: 'Olen saavuttanut kilpailuissa useita hyviä sijoituksia, kunniamainintoja ja mitaleja. Tämä tausta on antanut minulle vahvan ymmärryksen matematiikasta sekä siitä, miten sitä opitaan tehokkaasti.'
 			},
 			footer: 'Jos haluat selkeyttä matematiikkaan, varmuutta kokeisiin tai nostaa arvosanojasi, autan sinua mielelläni. Tehdään yhdessä tavoitteistasi totta.',
@@ -342,7 +324,14 @@ export const translations: Record<string, any> = {
 			includesLabel: 'Kurssi sisältää:',
 			notesLabel: 'Tärkeää tietoa ja ehdot:',
 			weeks: 'viikkoa',
-			studentsLabel: 'opiskelijaa',
+						studentsLabel: 'opiskelijaa',
+			globalNotes: [
+				'Kurssit ja valmennus eivät takaa tiettyjä arvosanoja, tuloksia tai sisäänpääsyä. Lopputulos riippuu työpanoksesta, lähtötasosta, tavoitteista ja kilpailutilanteesta.',
+				'Matematiikassa menestyminen vaatii säännöllistä ja aktiivista itsenäistä harjoittelua tuntien ulkopuolella. Opetus tarjoaa ohjausta, välineet ja tehokkaat oppimismenetelmät.',
+				'Lupaus: oppilas ymmärtää haastavat aiheet aiempaa paremmin, nopeuttaa tehtävien ratkaisua ja kehittää varman ja strategisen lähestymistavan.',
+				'Peruutusehdot: Tunti on peruutettava viimeistään 24 tuntia etukäteen. Myöhässä peruttuja tunteja ei hyvitetä. Mikäli tutor peruuttaa tunnin, järjestetään korvaava tunti ilmaiseksi.',
+				'Soveltuvin osin harjoituskokeet ja simulaatiot räätälöidään etukäteen vastaamaan mahdollisimman hyvin todellisia kokeita.'
+			],
 			c1: {
 				title: 'Matematiikkavalmennus kauppiksen ja tekniikan pääsykokeisiin',
 				level: 'Pääsykokeet',
@@ -355,13 +344,6 @@ export const translations: Record<string, any> = {
 					'4 räätälöityä harjoituskoetta, jotka simuloivat todellista koetilannetta',
 					'Henkilökohtaista valmennusta, jossa kehitetään ajattelumalleja ja ongelmanratkaisua',
 					'Tutor-perusteinen ohjaus: oppilas ja tutor suunnittelevat yhdessä sisällön'
-				],
-				importantNotes: [
-					'Kurssi ei takaa sisäänpääsyä. Lopputulos riippuu useista tekijöistä, kuten oppilaan lähtötasosta, työpanoksesta, hakukohteesta ja kilpailutilanteesta.',
-					'Pääsykokeissa vaaditaan vahvaa laskurutiinia. Oppilaan tulee tehdä merkittävä määrä itsenäistä harjoittelua tuntien ulkopuolella. Kurssi tarjoaa ohjausta, tukea ja keinoja ymmärtää vaativia aiheita.',
-					'Kurssi lupaa, että oppilas: ymmärtää haastavia aiheita, oppii käyttämään aikaansa tehokkaammin kokeessa, ja kehittää strategista lähestymistapaa.',
-					'Peruutusehdot: Tunti on peruutettava 24h etukäteen. Myöhässä peruttuja ei hyvitetä. Tutorin peruessa järjestetään korvaava tunti.',
-					'Harjoituskokeet ovat ennalta räätälöityjä todellisen koetilanteen mukaan.'
 				],
 				price: ''
 			},
@@ -379,12 +361,6 @@ export const translations: Record<string, any> = {
 					'Joustavaa etenemistä, keskittyen haastavimpiin aiheisiin',
 					'Tutor-perusteinen lähestymistapa: opiskelusuunnitelma tehdään yhdessä'
 				],
-				importantNotes: [
-					'Tutorointi ei takaa tiettyjä arvosanoja. Kehitys riippuu oppilaan lähtötasosta, tavoitteista ja omasta työpanoksesta.',
-					'Kehittyminen vaatii säännöllistä itsenäistä harjoittelua tuntien ulkopuolella. Tutorointi tarjoaa selkeät työkalut, ymmärryksen ja suunnan oppimiselle.',
-					'Kurssi lupaa, että oppilas: ymmärtää vaikeiksi koettuja aiheita, kehittää ongelmanratkaisutaitoja ja oppii työskentelemään tehokkaammin.',
-					'Peruutusehdot: Peruutus 24h ennen sovittua aikaa. Myöhästyneitä peruutuksia ei hyvitetä. Tutorin peruutukset hyvitetään korvaavalla tunnilla.'
-				],
 				price: ''
 			},
 			c3: {
@@ -401,12 +377,6 @@ export const translations: Record<string, any> = {
 					'Henkilökohtaista valmennusta koestrategian ja ajankäytön kehittämiseksi',
 					'Yhteisesti luotu painotussuunnitelma tutorin kanssa'
 				],
-				importantNotes: [
-					'Valmennus ei takaa tiettyä arvosanaa. Lopputulos riippuu työpanoksesta, tavoitteista ja koesuorituksesta.',
-					'Yo-kokeessa menestyminen vaatii vahvaa laskurutiinia ja itsenäistä harjoittelua. Kurssi tarjoaa ohjausta vaikeisiin aiheisiin ja tehokkaat lähestymistavat.',
-					'Kurssi lupaa, että oppilas ymmärtää aiheet paremmin, oppii vastaamaan pisteitä maksimoivasti ja kehittää varmuutta koetilanteeseen.',
-					'Peruutusehdot: 24h etukäteen. Myöhässä peruttuja ei hyvitetä.'
-				],
 				price: ''
 			},
 			c4: {
@@ -422,12 +392,6 @@ export const translations: Record<string, any> = {
 					'Koesimulaatioita ja harjoitustehtäviä, jotka vastaavat oikeaa koetta',
 					'Henkilökohtaista valmennusta ajankäytön ja ratkaisutapojen hiomiseen',
 					'Tavoitepistemäärän mukainen yksilöllinen painotussuunnitelma'
-				],
-				importantNotes: [
-					'Valmennus ei takaa tiettyä pistemäärää. Tulokset riippuvat lähtötasosta, kilpailutilanteesta ja työpanoksesta.',
-					'SAT-matematiikka vaatii vahvaa rutiinia ja toistoa myös itsenäisesti. Kurssi antaa tehokkaat työkalut ja strategiat.',
-					'Kurssi lupaa, että oppilas oppii ratkaisemaan tehtäviä nopeammin/virheettömämmin ja kehittää tehokkaan koestrategian.',
-					'Peruutusehdot: 24h etukäteen.'
 				],
 				price: ''
 			}

@@ -116,17 +116,7 @@
 							</ul>
 						</div>
 
-						<div class="bg-muted/30 border-border/50 border-t px-6 py-4">
-							<p class="text-foreground mb-3 text-sm font-bold flex items-center gap-2">
-								<Icon icon="lucide:info" class="h-4 w-4 text-accent" />
-								{t('courses.notesLabel') || 'Important Notes:'}
-							</p>
-							<ul class="space-y-2 list-disc list-outside ml-4">
-								{#each course.importantNotes as note}
-									<li class="text-muted-foreground text-xs leading-relaxed">{note}</li>
-								{/each}
-							</ul>
-						</div>
+
 
 						<div class="mt-auto px-6 pb-6 pt-4">
 							<div class="mb-4 flex items-center md:items-start text-sm font-medium text-foreground">
@@ -148,5 +138,20 @@
 				</AnimateOnScroll>
 			{/each}
 		</div>
+
+		<AnimateOnScroll animation="slide" delay={150} threshold={0.1}>
+			<div class="mt-12 w-full rounded-3xl border border-secondary p-8 bg-muted/20 backdrop-blur-md">
+				<p class="text-foreground mb-4 text-lg font-bold flex items-center gap-2">
+					<Icon icon="lucide:info" class="h-5 w-5 text-accent" />
+					{t('courses.notesLabel') || 'Important Notes:'}
+				</p>
+				
+				<ul class="space-y-3 list-disc list-outside ml-5">
+					{#each (Array.isArray(t('courses.globalNotes')) ? t('courses.globalNotes') : []) as note}
+						<li class="text-muted-foreground text-sm leading-relaxed">{note}</li>
+					{/each}
+				</ul>
+			</div>
+		</AnimateOnScroll>
 	</div>
 </section>

@@ -103,22 +103,36 @@
 						<h3 class="text-lg font-bold">{t('about.experience.title')}</h3>
 					</div>
 
-					<p class="text-muted-foreground text-sm md:text-base leading-relaxed mb-4">
-						{t('about.experience.intro')}
-					</p>
+					<div class="flex flex-col gap-8">
+						<div>
+							<p class="text-muted-foreground text-sm md:text-base leading-relaxed mb-4">
+								{t('about.experience.intro')}
+							</p>
 
-					<ul class="space-y-2 mb-5 pl-1">
-						{#each experienceBullets as bullet}
-							<li class="flex items-start gap-3 text-sm md:text-base">
-								<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full" style="background: var(--gradient-primary);"></span>
-								<span class="text-muted-foreground">{bullet}</span>
-							</li>
-						{/each}
-					</ul>
+							<ul class="space-y-2 mb-5 pl-1">
+								{#each experienceBullets as bullet}
+									<li class="flex items-start gap-3 text-sm md:text-base">
+										<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full" style="background: var(--gradient-primary);"></span>
+										<span class="text-muted-foreground w-full">{@html bullet}</span>
+									</li>
+								{/each}
+							</ul>
 
-					<p class="text-muted-foreground text-sm md:text-base leading-relaxed">
-						{t('about.experience.outro')}
-					</p>
+							<p class="text-muted-foreground text-sm md:text-base leading-relaxed mb-6">
+								{t('about.experience.outro')}
+							</p>
+						</div>
+
+						<!-- Pic #3: Competition -->
+						<div class="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden rounded-2xl bg-muted/20 shadow-sm border border-border/50 group">
+							<img
+								src="/images/avatar/competition.jpeg"
+								alt="Aalto University Mathematics Competition Team"
+								class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+						</div>
+					</div>
 				</div>
 
 				<!-- Divider -->
